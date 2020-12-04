@@ -1,0 +1,596 @@
+fileFormatVersion: 2
+guid: 8179506dd7292424389b17b9dfd833ab
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9168314687884419293
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_0
+  - first:
+      213: 605996950968195692
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_1
+  - first:
+      213: -954628284654127911
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_2
+  - first:
+      213: 4929806094484782620
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_3
+  - first:
+      213: -7776674684876281390
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_4
+  - first:
+      213: 8565850522279225597
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_5
+  - first:
+      213: 2030788641095352743
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_6
+  - first:
+      213: -699067578487576426
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_7
+  - first:
+      213: -2868088516067919935
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_8
+  - first:
+      213: -1667497719084404822
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_9
+  - first:
+      213: 3066764149979775890
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_10
+  - first:
+      213: 2861183005555713545
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_11
+  - first:
+      213: 1570124911755971425
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_12
+  - first:
+      213: 4747540314353317298
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_13
+  - first:
+      213: -7569644581019878838
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_14
+  - first:
+      213: 4480762769723134911
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_15
+  - first:
+      213: -2381197675084836117
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_16
+  - first:
+      213: 3740740098560845602
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_17
+  - first:
+      213: 2465893680429847596
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_18
+  - first:
+      213: -6315933390740511908
+    second: Interiors 21_768x768_TILESETS_B_C_D_E_School_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 672
+        width: 96
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0e85002a56c3f70800000000000000
+      internalID: 9168314687884419293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_1
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 723
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6add65240fe86800800000000000000
+      internalID: 605996950968195692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_2
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 723
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d476a802aa70c2f0800000000000000
+      internalID: -954628284654127911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_3
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 693
+        width: 81
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e325116803a6440800000000000000
+      internalID: 4929806094484782620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 96
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d92d22a393b31490800000000000000
+      internalID: -7776674684876281390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_5
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 648
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df82c8b8aa300e670800000000000000
+      internalID: 8565850522279225597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_6
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 645
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a1036e628fce2c10800000000000000
+      internalID: 2030788641095352743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_7
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 648
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 698614ebdb96c46f0800000000000000
+      internalID: -699067578487576426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_8
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 648
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7f46fb0b08238d0800000000000000
+      internalID: -2868088516067919935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_9
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 597
+        width: 90
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf2336c8abdbd8e0800000000000000
+      internalID: -1667497719084404822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_10
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 432
+        width: 66
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2938279feb55f8a20800000000000000
+      internalID: 3066764149979775890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_11
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 432
+        width: 66
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 906688bc8c6f4b720800000000000000
+      internalID: 2861183005555713545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_12
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 433
+        width: 64
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16bc432d9443ac510800000000000000
+      internalID: 1570124911755971425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_13
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 433
+        width: 65
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b530e923c6a2e140800000000000000
+      internalID: 4747540314353317298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_14
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 192
+        width: 66
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4a7958fb5833f690800000000000000
+      internalID: -7569644581019878838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_15
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 240
+        width: 66
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb3942cbffdde2e30800000000000000
+      internalID: 4480762769723134911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_16
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 241
+        width: 66
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be21594a45944fed0800000000000000
+      internalID: -2381197675084836117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_17
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 241
+        width: 66
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22767c3ec47c9e330800000000000000
+      internalID: 3740740098560845602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_18
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 672
+        width: 96
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c24d6ebcc3d983220800000000000000
+      internalID: 2465893680429847596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors 21_768x768_TILESETS_B_C_D_E_School_19
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 576
+        width: 94
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5322eb5b0c4958a0800000000000000
+      internalID: -6315933390740511908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

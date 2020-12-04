@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nta>
+
+	<name>airport_escort</name>
+
+	<group id="0" init="true" final="true" x="182.0" y="134.0">
+		<name>idle</name>
+		<micro>
+			<name>stay</name>
+			<instantiation>Stopped</instantiation>
+		</micro>
+
+	</group>
+
+	<group id="1" init="false" final="false" x="182.0" y="134.0">
+		<name>search</name>
+		<micro>
+			<name>search</name>
+			<instantiation>Search</instantiation>
+		</micro>
+
+	</group>
+
+	<group id="2" init="false" final="false" x="182.0" y="134.0">
+		<name>walk</name>
+		<micro>
+			<name>walk</name>
+			<instantiation>Movement</instantiation>
+		</micro>
+
+	</group>
+
+	<group id="3" init="false" final="false" x="182.0" y="134.0">
+		<name>talk</name>
+		<micro>
+			<name>talk</name>
+			<instantiation>Talking</instantiation>
+		</micro>
+
+	</group>
+
+	<group id="4" init="false" final="false" x="182.0" y="134.0">
+		<name>goBack</name>
+		<micro>
+			<name>return</name>
+			<instantiation> Movement</instantiation>
+		</micro>
+
+	</group>
+
+
+	<!--FROM HELLO STATE-->
+	<transition>
+		<source ref="2"/>
+		<target ref="4"/>
+		<guard condition="human_arrive"/>
+	</transition>
+
+	<transition>
+		<source ref="0"/>
+		<target ref="3"/>
+		<guard condition="human_approach"/>
+	</transition>
+
+	<transition>
+		<source ref="3"/>
+		<target ref="0"/>
+		<guard condition="human_leave"/>
+	</transition>
+
+
+	<design>mturk</design>
+</nta>

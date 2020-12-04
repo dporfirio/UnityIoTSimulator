@@ -1,0 +1,451 @@
+fileFormatVersion: 2
+guid: 18766e709dd0640bcb8d47d999431cbc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5192657443941607604
+    second: Sci-fi Obj Set 1_0
+  - first:
+      213: 4498755827517383935
+    second: Sci-fi Obj Set 1_1
+  - first:
+      213: 2624467887540716127
+    second: Sci-fi Obj Set 1_2
+  - first:
+      213: -6836610401258569916
+    second: Sci-fi Obj Set 1_3
+  - first:
+      213: 6150818420531768223
+    second: Sci-fi Obj Set 1_4
+  - first:
+      213: -1417322478444056550
+    second: Sci-fi Obj Set 1_5
+  - first:
+      213: -5148624940660889314
+    second: Sci-fi Obj Set 1_6
+  - first:
+      213: -622338128196462297
+    second: Sci-fi Obj Set 1_7
+  - first:
+      213: -4557393665868863531
+    second: Sci-fi Obj Set 1_8
+  - first:
+      213: 4252155482773041035
+    second: Sci-fi Obj Set 1_9
+  - first:
+      213: -8872218974648449841
+    second: Sci-fi Obj Set 1_10
+  - first:
+      213: -3040553376436410494
+    second: Sci-fi Obj Set 1_11
+  - first:
+      213: -3647969947142839476
+    second: Sci-fi Obj Set 1_12
+  - first:
+      213: 7676902147869469131
+    second: Sci-fi Obj Set 1_13
+  - first:
+      213: -5090791438935400358
+    second: Sci-fi Obj Set 1_14
+  - first:
+      213: 1808320160892868274
+    second: Sci-fi Obj Set 1_15
+  - first:
+      213: -2451219557669414566
+    second: Sci-fi Obj Set 1_16
+  - first:
+      213: 1044721028288049881
+    second: Sci-fi Obj Set 1_17
+  - first:
+      213: 2070742258636237215
+    second: Sci-fi Obj Set 1_18
+  - first:
+      213: -620134077280488865
+    second: Sci-fi Obj Set 1_19
+  - first:
+      213: 4082182820761210989
+    second: Sci-fi Obj Set 1_20
+  - first:
+      213: 7093430943620122193
+    second: Sci-fi Obj Set 1_21
+  - first:
+      213: 7792341334866527845
+    second: Sci-fi Obj Set 1_22
+  - first:
+      213: -4555197162101546257
+    second: Sci-fi Obj Set 1_23
+  - first:
+      213: -6797580572020855705
+    second: Sci-fi Obj Set 1_24
+  - first:
+      213: 4580902894407243675
+    second: Sci-fi Obj Set 1_25
+  - first:
+      213: 9190471928763877369
+    second: Sci-fi Obj Set 1_26
+  - first:
+      213: 3328684331796402814
+    second: Sci-fi Obj Set 1_27
+  - first:
+      213: 1390360661109475562
+    second: Sci-fi Obj Set 1_28
+  - first:
+      213: 7150353770257690073
+    second: Sci-fi Obj Set 1_29
+  - first:
+      213: -4454840619292648684
+    second: Sci-fi Obj Set 1_30
+  - first:
+      213: 5826493929201112921
+    second: Sci-fi Obj Set 1_31
+  - first:
+      213: -6267051005541382906
+    second: Sci-fi Obj Set 1_32
+  - first:
+      213: -6786043794854166057
+    second: Sci-fi Obj Set 1_33
+  - first:
+      213: 4296667293774181026
+    second: Sci-fi Obj Set 1_34
+  - first:
+      213: 3995443195414858806
+    second: Sci-fi Obj Set 1_35
+  - first:
+      213: -6303229714806610225
+    second: Sci-fi Obj Set 1_36
+  - first:
+      213: -7462912739037864597
+    second: Sci-fi Obj Set 1_37
+  - first:
+      213: 8761575417903721600
+    second: Sci-fi Obj Set 1_38
+  - first:
+      213: -2348396088735286958
+    second: Sci-fi Obj Set 1_39
+  - first:
+      213: -8327384504393917971
+    second: Sci-fi Obj Set 1_40
+  - first:
+      213: 1589274762914856437
+    second: Sci-fi Obj Set 1_41
+  - first:
+      213: -757883406272534138
+    second: Sci-fi Obj Set 1_42
+  - first:
+      213: -4819489394586453747
+    second: Sci-fi Obj Set 1_43
+  - first:
+      213: 5991028021139988959
+    second: Sci-fi Obj Set 1_44
+  - first:
+      213: 6592567044656202891
+    second: Sci-fi Obj Set 1_45
+  - first:
+      213: 6109094690791384929
+    second: Sci-fi Obj Set 1_46
+  - first:
+      213: -6667694248927057895
+    second: Sci-fi Obj Set 1_47
+  - first:
+      213: -3170631155736697593
+    second: Sci-fi Obj Set 1_48
+  - first:
+      213: -8753776913696445488
+    second: Sci-fi Obj Set 1_49
+  - first:
+      213: 6697813751792076169
+    second: Sci-fi Obj Set 1_50
+  - first:
+      213: 1338148858598179566
+    second: Sci-fi Obj Set 1_51
+  - first:
+      213: -617981673575400568
+    second: Sci-fi Obj Set 1_52
+  - first:
+      213: -6407549437771007551
+    second: Sci-fi Obj Set 1_53
+  - first:
+      213: 5199104635599111557
+    second: Sci-fi Obj Set 1_54
+  - first:
+      213: 254422405605576576
+    second: Sci-fi Obj Set 1_55
+  - first:
+      213: -4181328576301087758
+    second: Sci-fi Obj Set 1_56
+  - first:
+      213: 6670667654306827573
+    second: Sci-fi Obj Set 1_57
+  - first:
+      213: 1507285744805754301
+    second: Sci-fi Obj Set 1_58
+  - first:
+      213: 5860704390529757130
+    second: Sci-fi Obj Set 1_59
+  - first:
+      213: -3686735811487204193
+    second: Sci-fi Obj Set 1_60
+  - first:
+      213: 5101634902677990679
+    second: Sci-fi Obj Set 1_61
+  - first:
+      213: 8861129564973657960
+    second: Sci-fi Obj Set 1_62
+  - first:
+      213: -8774715361872262672
+    second: Sci-fi Obj Set 1_63
+  - first:
+      213: 5339576365988777579
+    second: Sci-fi Obj Set 1_64
+  - first:
+      213: 1717615226599030746
+    second: Sci-fi Obj Set 1_65
+  - first:
+      213: -1533669222152934658
+    second: Sci-fi Obj Set 1_66
+  - first:
+      213: -4207620863635958400
+    second: Sci-fi Obj Set 1_67
+  - first:
+      213: -2538475190972364838
+    second: Sci-fi Obj Set 1_68
+  - first:
+      213: -6067005342477128751
+    second: Sci-fi Obj Set 1_69
+  - first:
+      213: -6028816356217294484
+    second: Sci-fi Obj Set 1_70
+  - first:
+      213: -4632553127314108095
+    second: Sci-fi Obj Set 1_71
+  - first:
+      213: -6490667288758895828
+    second: Sci-fi Obj Set 1_72
+  - first:
+      213: -4986166595443703483
+    second: Sci-fi Obj Set 1_73
+  - first:
+      213: -1787051621995915532
+    second: Sci-fi Obj Set 1_74
+  - first:
+      213: -7737616111284989998
+    second: Sci-fi Obj Set 1_75
+  - first:
+      213: 5736450986012178943
+    second: Sci-fi Obj Set 1_76
+  - first:
+      213: -687789411346027423
+    second: Sci-fi Obj Set 1_77
+  - first:
+      213: 5598200459108290373
+    second: Sci-fi Obj Set 1_78
+  - first:
+      213: 1123489525010705082
+    second: Sci-fi Obj Set 1_79
+  - first:
+      213: 8439667992440860617
+    second: Sci-fi Obj Set 1_80
+  - first:
+      213: -692723894899445680
+    second: Sci-fi Obj Set 1_81
+  - first:
+      213: 4425793724521924491
+    second: Sci-fi Obj Set 1_82
+  - first:
+      213: -7898052785076229625
+    second: Sci-fi Obj Set 1_83
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sci-fi Obj Set 1_0
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5b38d21e7b2486faed8139973617f2
+      internalID: -5192657443941607604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-fi Obj Set 1_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 381c7d8e7c7a84c0b86e48a95a609fa8
+      internalID: 4498755827517383935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-fi Obj Set 1_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f72c4571892e2415b859a86896dda78f
+      internalID: 2624467887540716127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-fi Obj Set 1_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5cca3c8138ba40758c248e9fb719fdb
+      internalID: -6836610401258569916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5728eb38a89f544ccabb8703ddae6e31
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
