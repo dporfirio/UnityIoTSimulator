@@ -7,6 +7,8 @@ public class BedObject : HouseObject
     // Start is called before the first frame update
     void Start()
     {
+    	GameObject g = GameObject.Find("PlayerCanvas");
+        this.player = g.GetComponent<Player>();
         this.player.registerObject(this);
 		this.actions = new List<Action>();
 		this.activities = new List<Activity>();

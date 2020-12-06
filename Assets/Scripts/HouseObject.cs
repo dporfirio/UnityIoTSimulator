@@ -10,17 +10,13 @@ public abstract class HouseObject : MonoBehaviour
 	public List<Activity> activities;
 	public float distanceBound;
 
-	// register self with player
-	void Awake() {
-		GameObject g = GameObject.Find("PlayerCanvas");
-        this.player = g.GetComponent<Player>();
-	}
-
     // Start is called before the first frame update
-    void Start()
-    {
-        player.registerObject(this);
-    }
+    //void Start()
+    //{
+    //	GameObject g = GameObject.Find("PlayerCanvas");
+    //    this.player = g.GetComponent<Player>();
+        //this.player.registerObject(this);
+    //}
 
     // see how close this object is to the player
     public bool QueryPosition() {

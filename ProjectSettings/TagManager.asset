@@ -41,6 +41,9 @@ TagManager:
   - name: Background
     uniqueID: 3638799505
     locked: 0
+  - name: WalkableSprites
+    uniqueID: 870194493
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

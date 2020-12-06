@@ -6,6 +6,8 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class LightDevice : IoTDevice {
 
 	void Start() {
+		GameObject g = GameObject.Find("PlayerCanvas");
+        this.player = g.GetComponent<Player>();
 		this.player.registerObject(this);
 		this.isActive = false;
 		this.determineState(); // false is off
