@@ -24,10 +24,6 @@ public class Player : MonoBehaviour
     // dummy activity
     private Activity otherActivity;
 
-    public void registerObject(HouseObject go) {
-        householdObjects.Add(go);
-    }
-
     void Awake ()
     {
         // set up the component pane
@@ -111,6 +107,10 @@ public class Player : MonoBehaviour
                 }
             }
         }
+    }
+    
+    public void registerObject(HouseObject go) {
+        householdObjects.Add(go);
     }
 
     // update the current activity
