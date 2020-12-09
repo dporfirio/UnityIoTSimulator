@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -169,6 +169,8 @@ MonoBehaviour:
   distanceBound: 10
   isActive: 0
   state: 
+  maxIntensity: 1
+  minIntensity: 0
 --- !u!114 &39501889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +192,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0.9
   m_ShadowVolumeIntensity: 0
@@ -223,7 +225,7 @@ GameObject:
   - component: {fileID: 47708681}
   - component: {fileID: 47708682}
   - component: {fileID: 47708683}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair_bar2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &60225780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +478,7 @@ GameObject:
   - component: {fileID: 127217655}
   - component: {fileID: 127217657}
   - component: {fileID: 127217658}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CoffeeTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +600,7 @@ GameObject:
   - component: {fileID: 160898881}
   - component: {fileID: 160898883}
   - component: {fileID: 160898884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cabinets1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -756,6 +758,8 @@ MonoBehaviour:
   distanceBound: 10
   isActive: 0
   state: 
+  maxIntensity: 1
+  minIntensity: 0
 --- !u!114 &170318502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,7 +781,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0.9
   m_ShadowVolumeIntensity: 0
@@ -885,7 +889,7 @@ GameObject:
   - component: {fileID: 252302863}
   - component: {fileID: 252302864}
   - component: {fileID: 252302865}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair_bar1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1027,7 +1031,7 @@ GameObject:
   - component: {fileID: 271347402}
   - component: {fileID: 271347401}
   - component: {fileID: 271347403}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sink_kitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1123,7 +1127,7 @@ GameObject:
   - component: {fileID: 284268829}
   - component: {fileID: 284268831}
   - component: {fileID: 284268832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lamp_office
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1362,6 +1366,8 @@ MonoBehaviour:
   distanceBound: 10
   isActive: 0
   state: 
+  maxIntensity: 1
+  minIntensity: 0
 --- !u!114 &302897794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1383,7 +1389,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0.9
   m_ShadowVolumeIntensity: 0
@@ -1415,7 +1421,7 @@ GameObject:
   - component: {fileID: 310695902}
   - component: {fileID: 310695904}
   - component: {fileID: 310695905}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shelf2_office
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1537,7 +1543,7 @@ GameObject:
   - component: {fileID: 318391607}
   - component: {fileID: 318391609}
   - component: {fileID: 318391610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lamp_livingroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1659,7 +1665,7 @@ GameObject:
   - component: {fileID: 329061991}
   - component: {fileID: 329061993}
   - component: {fileID: 329061994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Toilet_bathroom1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1894,7 +1900,7 @@ GameObject:
   - component: {fileID: 370835209}
   - component: {fileID: 370835211}
   - component: {fileID: 370835212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plant_foyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2646,6 +2652,8 @@ MonoBehaviour:
   distanceBound: 10
   isActive: 0
   state: 
+  maxIntensity: 1
+  minIntensity: 0
 --- !u!114 &469089398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2667,7 +2675,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0.9
   m_ShadowVolumeIntensity: 0
@@ -2735,6 +2743,8 @@ MonoBehaviour:
   distanceBound: 10
   isActive: 0
   state: 
+  maxIntensity: 1
+  minIntensity: 0
 --- !u!114 &480270182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2756,7 +2766,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0.9
   m_ShadowVolumeIntensity: 0
@@ -2788,7 +2798,7 @@ GameObject:
   - component: {fileID: 496573158}
   - component: {fileID: 496573160}
   - component: {fileID: 496573161}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shower_bathroom1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2946,6 +2956,8 @@ MonoBehaviour:
   distanceBound: 10
   isActive: 0
   state: 
+  maxIntensity: 1
+  minIntensity: 0
 --- !u!114 &501535122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2967,7 +2979,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0.9
   m_ShadowVolumeIntensity: 0
@@ -2999,7 +3011,7 @@ GameObject:
   - component: {fileID: 507154737}
   - component: {fileID: 507154739}
   - component: {fileID: 507154740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bookshelf1_livingroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4273,7 +4285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &568060124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4295,7 +4307,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
@@ -4678,6 +4690,8 @@ MonoBehaviour:
   distanceBound: 10
   isActive: 0
   state: 
+  maxIntensity: 1
+  minIntensity: 0
 --- !u!114 &632608974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4699,7 +4713,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0.9
   m_ShadowVolumeIntensity: 0
@@ -4731,7 +4745,7 @@ GameObject:
   - component: {fileID: 634752150}
   - component: {fileID: 634752152}
   - component: {fileID: 634752153}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12938,7 +12952,7 @@ GameObject:
   - component: {fileID: 713881021}
   - component: {fileID: 713881022}
   - component: {fileID: 713881023}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair_dining1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13152,7 +13166,7 @@ GameObject:
   - component: {fileID: 761395409}
   - component: {fileID: 761395411}
   - component: {fileID: 761395412}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VanitySet_bedroom_master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13273,6 +13287,7 @@ GameObject:
   - component: {fileID: 778726322}
   - component: {fileID: 778726321}
   - component: {fileID: 778726323}
+  - component: {fileID: 778726324}
   m_Layer: 0
   m_Name: Door_front
   m_TagString: Untagged
@@ -13357,6 +13372,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b386ed0ef243a64b9e0a29ff0d4a1be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &778726324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778726320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97037f1b95f0f43499dfb271934f76c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  distanceBound: 2
 --- !u!1 &782811140
 GameObject:
   m_ObjectHideFlags: 0
@@ -13595,7 +13624,7 @@ GameObject:
   - component: {fileID: 859123510}
   - component: {fileID: 859123512}
   - component: {fileID: 859123513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Counter2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13704,6 +13733,118 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.43, y: 0.20331919}
   m_EdgeRadius: 0
+--- !u!1 &875088632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875088636}
+  - component: {fileID: 875088635}
+  - component: {fileID: 875088634}
+  - component: {fileID: 875088633}
+  m_Layer: 0
+  m_Name: Robot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &875088633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875088632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 821532075}
+--- !u!114 &875088634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875088632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+  radius: 0.5
+  height: 2
+  repathRate: 0.5
+  canSearch: 1
+  canMove: 1
+  maxSpeed: 2
+  gravity: {x: 0, y: 0, z: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 0
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
+  rotationSpeed: 360
+  slowdownDistance: 0.6
+  pickNextWaypointDist: 0.3
+  endReachedDistance: 0.2
+  alwaysDrawGizmos: 0
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 0
+  constrainInsideGraph: 0
+--- !u!114 &875088635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875088632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!4 &875088636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875088632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.34, y: 32.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1344884512}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &876771038
 GameObject:
   m_ObjectHideFlags: 0
@@ -13716,7 +13857,7 @@ GameObject:
   - component: {fileID: 876771039}
   - component: {fileID: 876771041}
   - component: {fileID: 876771042}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Toilet_bathroom2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13839,7 +13980,7 @@ GameObject:
   - component: {fileID: 903294764}
   - component: {fileID: 903294765}
   - component: {fileID: 903294766}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair_bar3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13982,7 +14123,7 @@ GameObject:
   - component: {fileID: 903717393}
   - component: {fileID: 903717395}
   - component: {fileID: 903717396}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Desk_office
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14104,7 +14245,8 @@ GameObject:
   - component: {fileID: 904988765}
   - component: {fileID: 904988767}
   - component: {fileID: 904988768}
-  m_Layer: 0
+  - component: {fileID: 904988769}
+  m_Layer: 8
   m_Name: TV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14214,6 +14356,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.87, y: 0.20180583}
   m_EdgeRadius: 0
+--- !u!114 &904988769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904988764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc27608afd0bc014c8be5854c306ceb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  distanceBound: 2
 --- !u!43 &906244591
 Mesh:
   m_ObjectHideFlags: 0
@@ -14390,7 +14546,7 @@ GameObject:
   - component: {fileID: 965073793}
   - component: {fileID: 965073792}
   - component: {fileID: 965073794}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Endtable_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14574,7 +14730,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0.9
   m_ShadowVolumeIntensity: 0
@@ -14610,6 +14766,8 @@ MonoBehaviour:
   distanceBound: 10
   isActive: 0
   state: 
+  maxIntensity: 1
+  minIntensity: 0
 --- !u!1 &1002810479
 GameObject:
   m_ObjectHideFlags: 0
@@ -14622,7 +14780,7 @@ GameObject:
   - component: {fileID: 1002810480}
   - component: {fileID: 1002810482}
   - component: {fileID: 1002810483}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Endtable_bedroom_guest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14732,6 +14890,49 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.45142156}
   m_EdgeRadius: 0
+--- !u!1 &1003557615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1003557616}
+  - component: {fileID: 1003557617}
+  m_Layer: 0
+  m_Name: EventHub
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1003557616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003557615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.3957205, y: 20.253511, z: -1597.0762}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1003557617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003557615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 809da24ca8126b745afca9c46808d730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1021843885
 GameObject:
   m_ObjectHideFlags: 0
@@ -17706,7 +17907,7 @@ GameObject:
   - component: {fileID: 1042795001}
   - component: {fileID: 1042795003}
   - component: {fileID: 1042795004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bookshelf3_office
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17864,6 +18065,8 @@ MonoBehaviour:
   distanceBound: 10
   isActive: 0
   state: 
+  maxIntensity: 1
+  minIntensity: 0
 --- !u!114 &1051963318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17885,7 +18088,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0.9
   m_ShadowVolumeIntensity: 0
@@ -18052,7 +18255,7 @@ GameObject:
   - component: {fileID: 1072343352}
   - component: {fileID: 1072343354}
   - component: {fileID: 1072343355}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lamp_bedroom_master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18178,7 +18381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1099420479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18200,7 +18403,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
@@ -18341,7 +18544,7 @@ GameObject:
   - component: {fileID: 1111792970}
   - component: {fileID: 1111792972}
   - component: {fileID: 1111792973}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shelf1_office
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18499,6 +18702,8 @@ MonoBehaviour:
   distanceBound: 10
   isActive: 0
   state: 
+  maxIntensity: 1
+  minIntensity: 0
 --- !u!114 &1144693313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18520,7 +18725,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0.9
   m_ShadowVolumeIntensity: 0
@@ -18540,6 +18745,97 @@ MonoBehaviour:
   - {x: 1.4888463, y: -5.3573217, z: 0}
   - {x: 1.5114485, y: 0.62895525, z: 0}
   - {x: -0.13271424, y: 0.6289559, z: 0}
+--- !u!1 &1160562316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1160562317}
+  - component: {fileID: 1160562319}
+  - component: {fileID: 1160562318}
+  m_Layer: 0
+  m_Name: Sun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1160562317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160562316}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.1, y: -1.6, z: 77.652245}
+  m_LocalScale: {x: 5.7054377, y: 1.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1458640603}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1160562318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160562316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9c57cf4e162114dbeb77c43606202e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  distanceBound: 10
+  isActive: 0
+  state: 
+  maxIntensity: 0
+  minIntensity: 0
+--- !u!114 &1160562319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160562316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 1
+  m_Color: {r: 1, g: 0.935897, b: 0.76862746, a: 1}
+  m_Intensity: 1
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 1
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0.9
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 100
+  m_PointLightOuterRadius: 300
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 2
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -4.392487, y: -17.4289, z: 0}
+  - {x: 5.2444463, y: -16.814703, z: 0}
+  - {x: 5.289958, y: 18.057333, z: 0}
+  - {x: -4.379824, y: 18.110023, z: 0}
 --- !u!1 &1224969319
 GameObject:
   m_ObjectHideFlags: 0
@@ -18552,7 +18848,7 @@ GameObject:
   - component: {fileID: 1224969320}
   - component: {fileID: 1224969322}
   - component: {fileID: 1224969323}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Couch_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18675,7 +18971,8 @@ GameObject:
   - component: {fileID: 1270921274}
   - component: {fileID: 1270921275}
   - component: {fileID: 1270921276}
-  m_Layer: 0
+  - component: {fileID: 1270921277}
+  m_Layer: 8
   m_Name: Bed_Guest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18732,8 +19029,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 870194493
-  m_SortingLayer: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c9d85ec223cc34967a441bdea3998129, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18793,6 +19090,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b386ed0ef243a64b9e0a29ff0d4a1be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1270921277
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270921271}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.31775117}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.72, y: 4.2}
+    newSize: {x: 3.72, y: 4.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.72, y: 3.5644975}
+  m_EdgeRadius: 0
 --- !u!1 &1299104384
 GameObject:
   m_ObjectHideFlags: 0
@@ -18865,7 +19188,7 @@ GameObject:
   - component: {fileID: 1304874416}
   - component: {fileID: 1304874418}
   - component: {fileID: 1304874419}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair_office
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18987,7 +19310,7 @@ GameObject:
   - component: {fileID: 1318269402}
   - component: {fileID: 1318269404}
   - component: {fileID: 1318269405}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Endtable_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19434,7 +19757,7 @@ GameObject:
   - component: {fileID: 1340218343}
   - component: {fileID: 1340218345}
   - component: {fileID: 1340218346}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bookshelf2_office
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19557,7 +19880,7 @@ GameObject:
   - component: {fileID: 1344884510}
   - component: {fileID: 1344884513}
   m_Layer: 0
-  m_Name: Robot1
+  m_Name: RobotGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19634,11 +19957,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344884509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.45, y: 32.97, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 875088636}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1344884513
 BoxCollider2D:
@@ -19756,7 +20079,7 @@ GameObject:
   - component: {fileID: 1386309885}
   - component: {fileID: 1386309887}
   - component: {fileID: 1386309888}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair_kitchen2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20108,7 +20431,7 @@ GameObject:
   - component: {fileID: 1456419765}
   - component: {fileID: 1456419766}
   - component: {fileID: 1456419767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair_dining4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20247,8 +20570,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7108b07dd2018473ba9cf409589ccd33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sun: {fileID: 1160562319}
   EastLight: {fileID: 568060124}
   WestLight: {fileID: 1099420479}
+  MasterBath: {fileID: 997522723}
+  GuestBed: {fileID: 1618377207}
+  MasterBed: {fileID: 1144693313}
+  Kitchen: {fileID: 302897794}
+  Dining: {fileID: 632608974}
+  Living: {fileID: 170318502}
+  Foyer: {fileID: 1051963318}
+  Office: {fileID: 469089398}
+  Hallway1: {fileID: 39501889}
+  Hallway2: {fileID: 480270182}
+  EntranceBath: {fileID: 501535122}
+  MasterBathDev: {fileID: 0}
+  GuestBedDev: {fileID: 0}
+  MasterBedDev: {fileID: 0}
+  KitchenDev: {fileID: 0}
+  DiningDev: {fileID: 0}
+  LivingDev: {fileID: 0}
+  FoyerDev: {fileID: 0}
+  OfficeDev: {fileID: 0}
+  Hallway1Dev: {fileID: 0}
+  Hallway2Dev: {fileID: 0}
+  EntranceBathDev: {fileID: 0}
+  lightDevs: []
 --- !u!4 &1458640603
 Transform:
   m_ObjectHideFlags: 0
@@ -20262,8 +20609,9 @@ Transform:
   m_Children:
   - {fileID: 1099420480}
   - {fileID: 568060125}
+  - {fileID: 1160562317}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1504232847
 GameObject:
@@ -20278,7 +20626,7 @@ GameObject:
   - component: {fileID: 1504232850}
   - component: {fileID: 1504232851}
   - component: {fileID: 1504232852}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bed_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20420,7 +20768,7 @@ GameObject:
   - component: {fileID: 1535448298}
   - component: {fileID: 1535448300}
   - component: {fileID: 1535448301}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table_dining
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20760,7 +21108,7 @@ GameObject:
   - component: {fileID: 1570813484}
   - component: {fileID: 1570813486}
   - component: {fileID: 1570813487}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bookshelf2_livingroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20882,7 +21230,7 @@ GameObject:
   - component: {fileID: 1572889837}
   - component: {fileID: 1572889838}
   - component: {fileID: 1572889839}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair_dining2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21004,7 +21352,7 @@ GameObject:
   - component: {fileID: 1586353018}
   - component: {fileID: 1586353019}
   - component: {fileID: 1586353020}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sink_bathroom1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21126,7 +21474,7 @@ GameObject:
   - component: {fileID: 1595490464}
   - component: {fileID: 1595490466}
   - component: {fileID: 1595490467}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lamp_bedroom_guest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21371,7 +21719,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 91ace3d83d1dde3300000000a193c1fbddbca93599b35554
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0.9
   m_ShadowVolumeIntensity: 0
@@ -21407,6 +21755,8 @@ MonoBehaviour:
   distanceBound: 10
   isActive: 0
   state: 
+  maxIntensity: 1
+  minIntensity: 0
 --- !u!1 &1630386233
 GameObject:
   m_ObjectHideFlags: 0
@@ -21572,7 +21922,7 @@ GameObject:
   - component: {fileID: 1658260648}
   - component: {fileID: 1658260650}
   - component: {fileID: 1658260651}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bookshelf1_office
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21782,7 +22132,7 @@ GameObject:
   - component: {fileID: 1697925622}
   - component: {fileID: 1697925624}
   - component: {fileID: 1697925625}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair_kitchen1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21921,7 +22271,7 @@ Transform:
   m_Children:
   - {fileID: 464990982}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1883073372
 GameObject:
@@ -21935,7 +22285,7 @@ GameObject:
   - component: {fileID: 1883073374}
   - component: {fileID: 1883073375}
   - component: {fileID: 1883073376}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sink_bathroom2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22057,7 +22407,7 @@ GameObject:
   - component: {fileID: 1886609989}
   - component: {fileID: 1886609990}
   - component: {fileID: 1886609991}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair_dining3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22386,7 +22736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACIn+sx1NYATwIAAPIEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzqVjHJqP3lpDSA8kTEgnF1+EtMYaZMmjj/CR4b93JRvsuCfEvrert29X/iRC2RqY02ZhBF9qDuTniIQz+TbqwCc40K1Wa3GCC+ddcFcGEo2cV+qExvgkpFldgTOC/VJbGcgJBr0ShTbVnG8h09ZZDBdUWkDIaBeyFYY+R+SAP+OHkHLEU3oXTic8PSSjMx4ZKAemR/3RMi+8ScPzikla1cCD6I6ePrT0yX2kKWynZQTpTEspbKuFuGMde81obT12ggQuKPYWBQR+CWJbulC3n/xSFBZcq8nQ40wYtKipSn7rxreK2l2j64NKH22KipqSy//Q8STChdHV0+XWSRJucKVgu1d6ZNS6nq398OyrbK/2VO7oRsJ7CepZL4z2iiPojA+p3kI66/5eG8tKYLsu3kgdBH3duZ0MZhN6OMfeD5kU1SZA36dNYC11dDuOHgzO5Q8Kjoth2xIYDSr+Wnij2/4GtcCjMNYh1HapgryN9iZQyTx6FrrxLtNGQQy3omtQVLrjCsu44QAHWO/aAfJIw1tpL2+xyxMYpMRwx0+SAbTS++uwbKn3S7Dli3dSKOhEB+AZfcq0Us1+9T25pK29KSjrpW294F9Xi6TplKfFJk3u0huWTGDM+W16k7Dp3f30dsqSgsTdEwr7pHLVCG3twamprrjCPbt8QkYLQ+u469zQ/UKcKt2zXKhCr5kBUC9NhatwMHgJvkk+5wINWoNzQsV5k8+cSM12wPNroTx2Oj84Q/OuSk5q8aFdiOQki9+MnJzJ+R9QSwMEFAAACAgAAIif6y1jffxtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tJKRkUmKUVqSkYG5kXGygWGqbkqKmZGxQbKJuYWJmUmyQZpSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAIif6zHU1gBPAgAA8gQAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAIif6y1jffxtAAAAeAAAAAkAJAAAAAAAAAAAAAAAnAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABUAwAAAAA=
+    dataString: UEsDBBQAAAgIAACIn+u70AQiYQIAAAEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMziVjGyeQ3lpDSA/5mNBOLr4IaY01yJJHkgMkw3/vSraxS0+It29Xb9+u/EWEsjUwp83aCP6kOZDvE+LP5NtkCD7Cke602ohP6DnvgrvSk2jgvFEnNOKxT7O6AmcE+6F20pMjBBslCm2qFd9Bpq2zCBdUWsCQ0c5nK4S+JuSIP9N7n3LCUzL3p0883UeTMx4ZKAdmoC46YjzveHHLaxSTtKqBe9EDPe0LzxaBprCdjuGlMy2lsJ0W4k516DWjtW2wEyRwQbG3IMBXKkHsSud1jpNfisKC6yiGnpbCoEVtVfJTt75V1O5bXR9UNv6e5PYuaGqLPv0Xn8YhXBhdPfb3xpG/w5WC7d/oiVHrRsaO4eUgPA72HKjc062E9xLUs14b3SiOQWcan9pYSJbD30trWQlsP+Ct1CuwqQe/L3O8mS3SeHE7v19No35UvqFzsOKYSVFtPf8mbYGN1MH8sAlgcEy/UH3YE9vVRdRL+mPhN92NF6oLPAhjHYa6lpXXutWN8VSyCgb61hqXaaMgwF0HNSgq3ekVy7jreV7FRtdeRR6ofzrd5V2sfxFXKQEe+FF0FXrVh8vkbKkPT2DLl8ZJoWAQ7QPP6FOmlWrXbexJn7ZpTEHZKG3XCP7vnpEkSXlSbJNonsxYFMOU87tkFrF0vkjvUhYVJCyiUNgnla+t0M4enJoaiitcuv6LMlkbWofV54Ye1uKz0iPLhSr0hhkA9dJWuAgHg5fgE+UrLtCgDTgnVJg3+cqJ1GwPPL8UykOnq6MzNB+q5KQWH9p5JCdZ+ITk5EzOfwFQSwMEFAAACAgAAIif6y1jffxtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tJKRkUmKUVqSkYG5kXGygWGqbkqKmZGxQbKJuYWJmUmyQZpSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAIif67vQBCJhAgAAAQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAIif6y1jffxtAAAAeAAAAAkAJAAAAAAAAAAAAAAArgIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABmAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -22439,7 +22789,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1926001625
 GameObject:
@@ -22453,7 +22803,7 @@ GameObject:
   - component: {fileID: 1926001627}
   - component: {fileID: 1926001628}
   - component: {fileID: 1926001629}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair_guest_bedroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22576,7 +22926,7 @@ GameObject:
   - component: {fileID: 1985917486}
   - component: {fileID: 1985917487}
   - component: {fileID: 1985917488}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair_bar4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22841,7 +23191,7 @@ GameObject:
   - component: {fileID: 2008470593}
   - component: {fileID: 2008470595}
   - component: {fileID: 2008470596}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Table_kitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23233,7 +23583,7 @@ GameObject:
   - component: {fileID: 2103706122}
   - component: {fileID: 2103706124}
   - component: {fileID: 2103706125}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Couch_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23355,7 +23705,7 @@ GameObject:
   - component: {fileID: 2137050542}
   - component: {fileID: 2137050544}
   - component: {fileID: 2137050545}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Counter1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

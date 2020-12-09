@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class WatchTV : Activity
+public class Leave : Activity
 {
 
     // Start is called before the first frame update
-    public WatchTV(GameObject bed, Player player)
+    public Leave(GameObject bed, Player player)
     {
     	this.actingObject = bed;
         this.player = player;
-        this.command = "watch TV";
-        this.description = "watching TV";
+        this.command = "leave";
+        this.description = "left the house";
     }
 
     public override bool CheckActivityConditions() {
-        bool isClose = this.actingObject.GetComponent<TVObject>().QueryPosition();
+        bool isClose = this.actingObject.GetComponent<FrontDoorObject>().QueryPosition();
         if (!isClose) {
             this.EndAct();
             return false;

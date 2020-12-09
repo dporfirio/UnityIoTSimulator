@@ -14,7 +14,13 @@ public class TimeUpdater : MonoBehaviour
 	public Toggle play;
 	public Toggle ff;
 	public Toggle fff;
+
+	// dependencies
+	// the time of day affects the outside lighting
 	private LightController lc;
+
+	// the time of day can affect when certain events occur
+	private EventHub es;
 
 	private List<string> iotHistory;
 	private List<IoTDevice> devices;
@@ -31,6 +37,10 @@ public class TimeUpdater : MonoBehaviour
     	// find the day/night cycle controller
     	GameObject g = GameObject.Find("LightController");
         lc = g.GetComponent<LightController>();
+
+        // find the event system
+        GameObject ges = GameObject.Find("EventHub");
+        es = ges.GetComponent<EventHub>();
 
         // get all of the IoT devices
         devices = new List<IoTDevice>();
@@ -162,6 +172,7 @@ public class TimeUpdater : MonoBehaviour
 
 			// update everything necessary
 			lc.UpdateLight(hour, minute, second);
+			es.UpdateExternalEvents(day_int, hour, minute, second);
 
 			int hour_int = 0;
 			string hour_str = "00";
