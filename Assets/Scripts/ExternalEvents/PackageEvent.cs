@@ -10,6 +10,9 @@ public class PackageEvent : ExternalEvent {
 	private Random rand;
 	private bool willReceive;
 
+	// UI components
+	public GameObject packagePrefab;
+
 	public PackageEvent() {
 		this.currDay = -1;
 		this.selectedHour = -1;
@@ -54,6 +57,9 @@ public class PackageEvent : ExternalEvent {
 
 	public override void Execute() {
 		Debug.Log("Executing package behavior!");
+
+		// add the package
+		GameObject package = Instantiate(packagePrefab);
 	}
 
 	private bool DetermineIfPackageReceivedOnDay() {

@@ -12,7 +12,7 @@ public class EventHub : MonoBehaviour
     {
         // initialize the individual events
         externalEvents = new List<ExternalEvent>();
-        externalEvents.Add(new PackageEvent());
+        externalEvents.Add(this.transform.Find("PackageEvent").GetComponent<PackageEvent>());
     }
 
     // Update is called once per frame
