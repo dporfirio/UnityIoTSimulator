@@ -6,19 +6,30 @@ public class EventHub : MonoBehaviour
 {
 
 	public List<ExternalEvent> externalEvents;
+    public Dictionary<string,int> triggers;
 
     // Start is called before the first frame update
     void Start()
     {
+        // initialize trigger dictionary
+        this.triggers = new Dictionary<string,int>();
+
         // initialize the individual events
         externalEvents = new List<ExternalEvent>();
-        externalEvents.Add(this.transform.Find("PackageEvent").GetComponent<PackageEvent>());
+        PackageEvent pe = this.transform.Find("PackageEvent").GetComponent<PackageEvent>();
+        pe.SetEventHub(this);
+        externalEvents.Add(pe);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        foreach (KeyValuePair<string, int> entry in this.triggers) {
+            if (entry.Value == 0)
+                RemoveTrigger(entry.Key);
+            else if (entry.Value > 0)
+                this.triggers[entry.Key] -= 1;
+        }
     }
 
     //updating the external events
@@ -26,5 +37,26 @@ public class EventHub : MonoBehaviour
     	foreach (ExternalEvent extEvent in externalEvents) {
     		extEvent.ReceiveTimeUpdate(day, hour, minute, second);
     	}
+    }
+
+    public void AddTrigger(string trigger, bool persistence) {
+        if (persistence)
+            this.triggers.Add(trigger,-1);
+        else
+            this.triggers.Add(trigger,5);   // trigger goes away after 5 update calls
+    }
+
+    public void RemoveTrigger(string trigger) {
+        this.triggers.Remove(trigger);
+    }
+
+    public List<string> GetAllTriggers() {
+        List<string> toReturn = new List<string>();
+
+        foreach (KeyValuePair<string, int> entry in this.triggers) {
+            toReturn.Add(entry.Key);
+        }
+
+        return toReturn;
     }
 }

@@ -9,7 +9,7 @@ public class Trigger {
 	}
 
 	public void RegisterActionWithTrigger(string trigger, Program action) {
-
+		this.TAP
 	}
 
 	public void RegisterActionWithConditional(Conditional cond, Program action) {

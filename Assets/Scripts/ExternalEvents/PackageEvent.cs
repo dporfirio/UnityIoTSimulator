@@ -13,7 +13,7 @@ public class PackageEvent : ExternalEvent {
 	// UI components
 	public GameObject packagePrefab;
 
-	public PackageEvent() {
+	void Start() {
 		this.currDay = -1;
 		this.selectedHour = -1;
 		this.selectedMin = -1;
@@ -56,10 +56,18 @@ public class PackageEvent : ExternalEvent {
 	}
 
 	public override void Execute() {
-		Debug.Log("Executing package behavior!");
+		Debug.Log("Executing package event!");
 
 		// add the package
 		GameObject package = Instantiate(packagePrefab);
+		package.name = "PackageDelivery";
+
+		// send the trigger
+		this.ehub.AddTrigger("PackageArrives", true);
+	}
+
+	public void SetEventHub(EventHub eh) {
+		this.ehub = eh;
 	}
 
 	private bool DetermineIfPackageReceivedOnDay() {
