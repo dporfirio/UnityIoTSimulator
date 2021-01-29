@@ -1,6 +1,7 @@
 using Random=System.Random;
 using System;
 using UnityEngine;
+using Pathfinding;
 
 public class PackageEvent : ExternalEvent {
 
@@ -61,6 +62,15 @@ public class PackageEvent : ExternalEvent {
 		// add the package
 		GameObject package = Instantiate(packagePrefab);
 		package.name = "PackageDelivery";
+		
+		//package.AddComponent<AIPath>();
+		//package.GetComponent<AIPath>().orientation = OrientationMode.YAxisForward;
+		//package.GetComponent<AIPath>().pickNextWaypointDist = 0.3f;
+
+		//package.AddComponent<Seeker>();
+		//package.AddComponent<AIDestinationSetter>();
+		//package.GetComponent<AIDestinationSetter>().target = null;
+		//Destroy(package.GetComponent<BoxCollider2D>());
 
 		// send the trigger
 		this.ehub.AddTrigger("PackageArrives", true);

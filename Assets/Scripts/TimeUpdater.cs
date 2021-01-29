@@ -69,7 +69,7 @@ public class TimeUpdater : MonoBehaviour
 
 		pause.isOn = true;
 		day.text = "Sunday";
-		time.text = "12:00:00 AM";
+		time.text = "07:00:00 AM";
 		StartCoroutine(timer());
 
 		iotHistory = new List<string>();
@@ -118,7 +118,7 @@ public class TimeUpdater : MonoBehaviour
 		int day_int = 0;
 		int second = 0;
 		int minute = 0;
-		int hour = 0;
+		int hour = 7;
 		while (true) {
 			//Wait for 4 seconds
 			yield return new WaitForSeconds(0.01F);

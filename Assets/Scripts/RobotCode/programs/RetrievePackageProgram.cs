@@ -5,11 +5,13 @@ public class RetrievePackageProgram : Program {
 	public RobotController rctrl;
 
 	public void Start() {
-		this.rctrl = this.gameObject.GetComponent<RobotController>();
+		//this.rctrl = this.gameObject.GetComponent<RobotController>();
+		this.rctrl = transform.parent.parent.gameObject.GetComponent<RobotController>();
+		Debug.Log(this.rctrl);
 	}
 	
 	public override void Execute() {
-
+		Debug.Log("Execute Retrieve Package!");
 		// get package sprite
 		GameObject pg = GameObject.Find("PackageDelivery");
 
