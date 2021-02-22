@@ -30,20 +30,31 @@ public class PgController : MonoBehaviour
     void Update()
     {
         
+        if (this.gameObject != null)
+        {
+            Debug.Log(this.gameObject);
+            // check if speed is updated:
 
+            AIPath tmp = this.gameObject.GetComponent<AIPath>();
+        
+            AIPath robot = GameObject.Find("Robot").gameObject.GetComponent<AIPath>();
+            tmp.maxSpeed = robot.maxSpeed;
+            tmp.maxAcceleration = robot.maxAcceleration;
+            tmp.slowdownDistance = robot.slowdownDistance;
+
+        }
         // check if package is picked up
         if (this.pathfinder.target != null)
         {
-            if (Vector2.Distance(this.pkg.transform.position, this.pathfinder.target.transform.position) <= 0.1f)
+            if (Vector2.Distance(this.pkg.transform.position, this.pathfinder.target.transform.position) <= 1.5f)
             {
                 this.pathfinder.target = null;
             }
-            
         }
 
     }
 
-    public void SetDestination() {
+    public void MoveToChair() {
         //this.pathfinder.target = this.rg.transform;
 
         this.pathfinder.target = GameObject.Find("Chair_office").transform;

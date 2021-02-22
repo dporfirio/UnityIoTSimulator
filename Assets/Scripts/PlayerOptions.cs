@@ -44,7 +44,10 @@ public class PlayerOptions : MonoBehaviour
     		foreach (Operation act in buttonArgs) {
     			string str = act.command;
 		    	GameObject sample = Instantiate(buttonPrefab);
-		    	sample.GetComponentsInChildren<Button>()[0].onClick.AddListener(delegate{this.ClickButton(act);});
+		    	//sample.GetComponentsInChildren<Button>()[0].onClick.AddListener(delegate{
+                sample.GetComponent<Toggle>().onValueChanged.AddListener(delegate {
+                    this.ClickButton(act);
+                });
 		    	Text txt = sample.GetComponentsInChildren<Image>()[0].GetComponentsInChildren<Text>()[0];
 		    	txt.text = str;
 		        sample.transform.SetParent(canvasParent.transform, false);

@@ -41,13 +41,20 @@ public class Player : MonoBehaviour
         // set up the dummy activity
         otherActivity = new Other();
         currActivity = otherActivity;
-    }
 
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         currActivity = otherActivity;
+        // add Input
+        GameObject.Find("StartInput").GetComponent<StartInput>().AddKey(KeyCode.Space, StartInput);
+    }
+
+    void StartInput()
+    {
+        GameObject.Find("ControlInput").GetComponent<UserInput>().PopUp();
     }
 
     // Update is called once per frame

@@ -10,7 +10,7 @@ public class Other : Activity
     public Other()
     {
         this.command = "other";
-        this.description = "other";
+        this.description = "idle/walking";
     }
 
     public override bool CheckActivityConditions() {

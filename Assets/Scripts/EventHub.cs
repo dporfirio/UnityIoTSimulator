@@ -19,6 +19,14 @@ public class EventHub : MonoBehaviour
         PackageEvent pe = this.transform.Find("PackageEvent").GetComponent<PackageEvent>();
         pe.SetEventHub(this);
         externalEvents.Add(pe);
+
+        VacuumEvent ve = this.transform.Find("VacuumEvent").GetComponent<VacuumEvent>();
+        ve.SetEventHub(this);
+        externalEvents.Add(ve);
+
+        MakeCoffeeEvent me = this.transform.Find("MakeCoffeeEvent").GetComponent<MakeCoffeeEvent>();
+        me.SetEventHub(this);
+        externalEvents.Add(me);
     }
 
     // Update is called once per frame

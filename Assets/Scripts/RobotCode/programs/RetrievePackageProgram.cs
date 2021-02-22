@@ -5,9 +5,7 @@ public class RetrievePackageProgram : Program {
 	public RobotController rctrl;
 
 	public void Start() {
-		//this.rctrl = this.gameObject.GetComponent<RobotController>();
 		this.rctrl = transform.parent.parent.gameObject.GetComponent<RobotController>();
-		Debug.Log(this.rctrl);
 	}
 	
 	public override void Execute() {
@@ -20,8 +18,8 @@ public class RetrievePackageProgram : Program {
 			return;
 		}
 
-		// attempt to set destination to package
-		this.rctrl.SetDestination(pg);
-	}
+        // attempt to set destination to package
+        this.rctrl.SetDestination(pg);
+    }
 
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Experimental.Rendering.Universal;
+using Pathfinding;
 
 public class TimeUpdater : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class TimeUpdater : MonoBehaviour
 	public Toggle play;
 	public Toggle ff;
 	public Toggle fff;
+	//public Text test;
 
 	// dependencies
 	// the time of day affects the outside lighting
@@ -27,6 +29,14 @@ public class TimeUpdater : MonoBehaviour
 	private Player player;
 
 	private int inc = 0;
+	private int preInc = 0;
+	private float timeInc = 1F;
+
+	public int daysPassed = 0;
+	public int day_int = 0;
+	public int second = 0;
+	public int minute = 0;
+	public int hour = 7;
 
 	void Awake ()
     {
@@ -61,21 +71,24 @@ public class TimeUpdater : MonoBehaviour
 			toggleValueChanged(play);
 		});
 		ff.onValueChanged.AddListener(delegate {
-			toggleValueChanged(ff);
-		});
+            toggleValueChanged(ff);
+        });
 		fff.onValueChanged.AddListener(delegate {
-			toggleValueChanged(fff);
-		});
+            toggleValueChanged(fff);
+        });
 
 		pause.isOn = true;
 		day.text = "Sunday";
-		time.text = "07:00:00 AM";
-		StartCoroutine(timer());
 
 		iotHistory = new List<string>();
 	}
 
-	void toggleValueChanged(Toggle tog) {
+    void Update()
+    {
+		timer();
+    }
+
+    public void toggleValueChanged(Toggle tog) {
 		ColorBlock cb = tog.colors;
 		if (tog.isOn)
 		{
@@ -97,128 +110,212 @@ public class TimeUpdater : MonoBehaviour
 
 		// set the inc
 		if (play.isOn) {
-			inc = 1;
+			ChangeInc(1);
 		}
 		else if (ff.isOn) {
-			inc = 20;
+			ChangeInc(10);
 		}
 		else if (fff.isOn) {
-			inc = 40;
+			ChangeInc(20);
 		}
 		else if (pause.isOn) {
-			inc = 0;
+			ChangeInc(0);
 		}
 	}
 
-	IEnumerator timer()
+	
+
+	public void TimeFly(int duration)
+    {
+       StartCoroutine(timeCount(duration));
+    }
+
+	Coroutine co;
+
+	public void StartTimeFly()
+	{
+		GameObject.Find("StartInput").GetComponent<StartInput>().AddKey(KeyCode.S, StopTimeFly);
+		co = StartCoroutine(timeInfi());
+	}
+
+	public void StopTimeFly()
+    {
+		StopCoroutine(co);
+
+		GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = true;
+		ChangeInc(1);
+		Debug.Log("end " + GameObject.Find("Player").GetComponent<PlayerMovement>().canMove);
+		GameObject.Find("StartInput").GetComponent<StartInput>().RemoveKey(KeyCode.S);
+	}
+
+	IEnumerator timeInfi()
+	{
+		ChangeInc(20);
+		Debug.Log("start");
+
+		while (true)
+		{
+			yield return new WaitForSeconds(0.1F);
+			GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = false;
+
+		}
+	}
+
+
+	IEnumerator timeCount(int duration)
+    {
+        int cnt = 0;
+
+		ChangeInc(20);
+		Debug.Log("start");
+
+		while (cnt <= duration)
+        {
+			yield return new WaitForSeconds(0.1F);
+			cnt += inc;
+            GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = false;
+
+        }
+        Debug.Log("end");
+
+		ChangeInc(1);
+
+		GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = true;
+
+    }
+
+	void ChangeInc(int newInc)
+    {
+		if (newInc == 0)
+        {
+			inc = 0;
+			preInc = 0;
+			GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxSpeed = 0F;
+			GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxAcceleration = 12F;
+			GameObject.Find("Robot").gameObject.GetComponent<AIPath>().slowdownDistance = 1F;
+
+			return;
+		}
+
+		preInc = inc;
+
+		inc = newInc;
+
+		if (preInc == 0)
+		{
+			preInc = 1;
+			GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxSpeed = 2.5F;
+		}
+
+		timeInc = (float)inc / (float)preInc;
+
+		GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxSpeed *= timeInc;
+		GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxAcceleration *= timeInc;
+		GameObject.Find("Robot").gameObject.GetComponent<AIPath>().slowdownDistance *= timeInc;
+	}
+
+	void timer()
 	{	
 		// begin a timer on loop
 		// start on midnight on Sunday
-		int daysPassed = 0;
-		int day_int = 0;
-		int second = 0;
-		int minute = 0;
-		int hour = 7;
-		while (true) {
-			//Wait for 4 seconds
-			yield return new WaitForSeconds(0.01F);
 
-			second += inc;
-			if (second >= 60) {
-				int diff = second-60;
-				second = diff;
-				minute += 1;
-				if (minute == 60) {
-					minute = 0;
-					hour += 1;
-					if (hour == 24) {
-						hour = 0;
-						day_int += 1;
-						daysPassed += 1;
-						System.IO.File.WriteAllLines(@"day" + daysPassed + ".txt", iotHistory);
-						iotHistory.Clear();
-						if (day_int == 7) {
-							day_int = 0;
-						}
-						// get the day
-						switch (day_int)
-						{
-							case 0:
-								day.text = "Sunday";
-								break;
-							case 1:
-								day.text = "Monday";
-								break;
-							case 2:
-								day.text = "Tuesday";
-								break;
-							case 3:
-								day.text = "Wednesday";
-								break;
-							case 4:
-								day.text = "Thursday";
-								break;
-							case 5:
-								day.text = "Friday";
-								break;
-							case 6:
-								day.text = "Saturday";
-								break;
+		second += inc;
+		if (second >= 60) {
+			int diff = second-60;
+			second = diff;
+			minute += 1;
+			if (minute == 60) {
+				minute = 0;
+				hour += 1;
+				if (hour == 24) {
+					hour = 0;
+					day_int += 1;
+					daysPassed += 1;
+					System.IO.File.WriteAllLines(@"day" + daysPassed + ".txt", iotHistory);
+					iotHistory.Clear();
+					if (day_int == 7) {
+						day_int = 0;
+					}
+					// get the day
+					switch (day_int)
+					{
+						case 0:
+							day.text = "Sunday";
+							break;
+						case 1:
+							day.text = "Monday";
+							break;
+						case 2:
+							day.text = "Tuesday";
+							break;
+						case 3:
+							day.text = "Wednesday";
+							break;
+						case 4:
+							day.text = "Thursday";
+							break;
+						case 5:
+							day.text = "Friday";
+							break;
+						case 6:
+							day.text = "Saturday";
+							break;
 
-						}
 					}
 				}
 			}
-
-			// update everything necessary
-			lc.UpdateLight(hour, minute, second);
-			es.UpdateExternalEvents(day_int, hour, minute, second);
-
-			int hour_int = 0;
-			string hour_str = "00";
-			string minute_str = "00";
-			string am_pm = "AM";
-
-			// set hour
-			if (hour == 0) {
-				hour_int = 12;
-			}
-			else if (hour >= 13) {
-				hour_int = hour - 12;
-			}
-			else {
-				hour_int = hour;
-			}
-
-			hour_str = "" + hour_int;
-			if (hour_int < 10) {
-				hour_str = "0" + hour_int;
-			}
-
-			// set minute
-			minute_str = "" + minute;
-			if (minute < 10) {
-				minute_str = "0" + minute;
-			}
-
-			// set am_pm
-			if (hour < 12) {
-				am_pm = "AM";
-			}
-			else {
-				am_pm = "PM";
-			}
-
-			time.text = hour_str + ":" + minute_str + " " + am_pm;
-
-			// update the iotHistory
-			string newSecond = "";
-			foreach (IoTDevice dev in devices) {
-				newSecond = newSecond + " " + dev.state;
-			}
-			newSecond = newSecond + " " + player.currActivity.description;
-			iotHistory.Add(newSecond);
 		}
+
+		// update everything necessary
+		lc.UpdateLight(hour, minute, second);
+		es.UpdateExternalEvents(day_int, hour, minute, second);
+
+		int hour_int = 0;
+		string hour_str = "00";
+		string minute_str = "00";
+		string am_pm = "AM";
+
+		// set hour
+		if (hour == 0) {
+			hour_int = 12;
+		}
+		else if (hour >= 13) {
+			hour_int = hour - 12;
+		}
+		else {
+			hour_int = hour;
+		}
+
+		hour_str = "" + hour_int;
+		if (hour_int < 10) {
+			hour_str = "0" + hour_int;
+		}
+
+		// set minute
+		minute_str = "" + minute;
+		if (minute < 10) {
+			minute_str = "0" + minute;
+		}
+
+		// set am_pm
+		if (hour < 12) {
+			am_pm = "AM";
+		}
+		else {
+			am_pm = "PM";
+		}
+
+		time.text = hour_str + ":" + minute_str + " " + am_pm;
+
+
+		// update the iotHistory
+		string newSecond = "";
+		foreach (IoTDevice dev in devices) {
+			newSecond = newSecond + " " + dev.state;
+		}
+		newSecond = newSecond + " " + player.currActivity.description;
+		iotHistory.Add(newSecond);
+		
 	}
 
 }

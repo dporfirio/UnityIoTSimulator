@@ -27,6 +27,7 @@ public class Sleep : Activity
 
     public override void Act() {
         this.player.UpdateActivity(this);
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(2000);
     }
 
     public override void EndAct() {

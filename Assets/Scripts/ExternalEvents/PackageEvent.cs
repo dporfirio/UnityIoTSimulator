@@ -24,7 +24,6 @@ public class PackageEvent : ExternalEvent {
 	}
 
 	public override void ReceiveTimeUpdate(int day, int hour, int min, int sec) {
-
 		// set the current day and probability that a package will be received
 		if (this.currDay == -1 || this.currDay != day) {
 			this.currDay = day;
@@ -41,7 +40,7 @@ public class PackageEvent : ExternalEvent {
 				double u2 = 1.0-rand.NextDouble();
 				double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) *
 				             Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
-				this.selectedHour = (int)Math.Round(13 + 1.5 * randStdNormal); //random normal(mean,stdDev^2)
+				this.selectedHour = (int)Math.Round(13 + randStdNormal); //random normal(mean,stdDev^2) // range from 10 to 16
 
 				Debug.Log("Package selected to be received at: " + this.selectedHour + " " + this.selectedMin);
 			}
@@ -62,15 +61,6 @@ public class PackageEvent : ExternalEvent {
 		// add the package
 		GameObject package = Instantiate(packagePrefab);
 		package.name = "PackageDelivery";
-		
-		//package.AddComponent<AIPath>();
-		//package.GetComponent<AIPath>().orientation = OrientationMode.YAxisForward;
-		//package.GetComponent<AIPath>().pickNextWaypointDist = 0.3f;
-
-		//package.AddComponent<Seeker>();
-		//package.AddComponent<AIDestinationSetter>();
-		//package.GetComponent<AIDestinationSetter>().target = null;
-		//Destroy(package.GetComponent<BoxCollider2D>());
 
 		// send the trigger
 		this.ehub.AddTrigger("PackageArrives", true);
