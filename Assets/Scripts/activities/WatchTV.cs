@@ -27,11 +27,13 @@ public class WatchTV : Activity
 
     public override void Act() {
         this.player.UpdateActivity(this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartTimeFly();
-
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartTimeFly(this, 15);
+        this.actingObject.GetComponent<TVObject>().state = "on";
     }
 
     public override void EndAct() {
-
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().act = null;
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StopCo();
+        this.actingObject.GetComponent<TVObject>().state = "off";
     }
 }

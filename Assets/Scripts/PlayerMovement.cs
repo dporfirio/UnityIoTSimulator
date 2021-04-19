@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        canMove = true;
+        canMove = false;
 
     }
 

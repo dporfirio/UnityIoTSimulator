@@ -27,10 +27,12 @@ public class Work : Activity
 
     public override void Act() {
         this.player.UpdateActivity(this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(1000);
+        //GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(1000);
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartTimeFly(this, 15);
     }
 
     public override void EndAct() {
-
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().act = null;
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StopCo();
     }
 }

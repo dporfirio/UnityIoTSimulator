@@ -6,7 +6,7 @@ public abstract class HouseObject : MonoBehaviour
 {
 
 	public Player player;
-	public List<Action> actions;
+	public List<HumanAction> actions;
 	public List<Activity> activities;
 	public float distanceBound;
 

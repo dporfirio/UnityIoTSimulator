@@ -1,4 +1,4 @@
-﻿public abstract class Action : Operation
+﻿public abstract class HumanAction : Operation
 {	
 
 }

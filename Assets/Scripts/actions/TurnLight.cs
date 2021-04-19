@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class TurnLight : Action
+public class TurnLight : HumanAction
 {
 
 	private LightDevice device;

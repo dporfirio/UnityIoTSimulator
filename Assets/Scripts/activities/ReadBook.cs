@@ -16,7 +16,7 @@ public class ReadBook : Activity
     }
 
     public override bool CheckActivityConditions() {
-        bool isClose = this.actingObject.GetComponent<TVObject>().QueryPosition();
+        bool isClose = this.actingObject.GetComponent<BookShelfObject>().QueryPosition();
         if (!isClose) {
             this.EndAct();
             return false;
@@ -27,11 +27,12 @@ public class ReadBook : Activity
 
     public override void Act() {
         this.player.UpdateActivity(this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartTimeFly();
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartTimeFly(this, 10);
 
     }
 
     public override void EndAct() {
-
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().act = null;
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StopCo();
     }
 }

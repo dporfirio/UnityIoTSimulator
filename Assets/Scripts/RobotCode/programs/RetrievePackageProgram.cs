@@ -20,6 +20,7 @@ public class RetrievePackageProgram : Program {
 
         // attempt to set destination to package
         this.rctrl.SetDestination(pg);
-    }
+		this.rctrl.state = "Retrieve Package";
+	}
 
 }

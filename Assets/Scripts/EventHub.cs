@@ -27,6 +27,10 @@ public class EventHub : MonoBehaviour
         MakeCoffeeEvent me = this.transform.Find("MakeCoffeeEvent").GetComponent<MakeCoffeeEvent>();
         me.SetEventHub(this);
         externalEvents.Add(me);
+
+        PhoneCallEvent pce = this.transform.Find("PhoneCallEvent").GetComponent<PhoneCallEvent>();
+        pce.SetEventHub(this);
+        externalEvents.Add(pce);
     }
 
     // Update is called once per frame

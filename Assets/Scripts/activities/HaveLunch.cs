@@ -30,14 +30,17 @@ public class HaveLunch : Activity
     public override void Act()
     {
         this.player.UpdateActivity(this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(500);
-        GameObject.Find("Lunch").GetComponent<SpriteRenderer>().enabled = false;
-        GameObject.Find("Lunch").GetComponent<LunchObject>().enabled = false;
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(150, this);
+
 
     }
 
     public override void EndAct()
     {
+        GameObject.Find("Lunch").GetComponent<SpriteRenderer>().enabled = false;
+        GameObject.Find("Lunch").GetComponent<LunchObject>().distanceBound = 0;
+        GameObject.Find("Lunch").GetComponent<LunchObject>().enabled = false;
 
+        GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = true;
     }
 }

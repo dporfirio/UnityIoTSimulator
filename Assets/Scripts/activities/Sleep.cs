@@ -27,10 +27,12 @@ public class Sleep : Activity
 
     public override void Act() {
         this.player.UpdateActivity(this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(2000);
+        //GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFlyAndStop(4500, this);
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartTimeFly(this, 25);
     }
 
     public override void EndAct() {
-
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().act = null;
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StopCo();
     }
 }

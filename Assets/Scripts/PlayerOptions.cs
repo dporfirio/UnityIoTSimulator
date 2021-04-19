@@ -54,7 +54,7 @@ public class PlayerOptions : MonoBehaviour
 		        sample.transform.position += new Vector3(0,currButtonY,0);
 		        goList.Add(sample);
 		        buttonsToggled = true;
-		        currButtonY += 15;
+		        currButtonY += 30;
 	    	}
     	}
     	else { 

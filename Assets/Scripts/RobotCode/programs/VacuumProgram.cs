@@ -21,10 +21,11 @@ public class VacuumProgram : Program {
 		GameObject five = GameObject.Find("Bookshelf2_office");
 		GameObject six = GameObject.Find("Lamp_bedroom_master");
 		GameObject seven = GameObject.Find("Chair_guest_bedroom");
-		GameObject eight = GameObject.Find("Door_front");
+		GameObject eight = GameObject.Find("Door");
 		GameObject home = GameObject.Find("Window_right");
 		GameObject[] arr = new GameObject[9] { one, two, three, four, five, six, seven, eight, home };
 		this.rctrl.SetGoals(arr);
-    }
+		this.rctrl.state = "Vacuum";
+	}
 
 }

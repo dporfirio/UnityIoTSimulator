@@ -49,10 +49,10 @@ public class Player : MonoBehaviour
     {
         currActivity = otherActivity;
         // add Input
-        GameObject.Find("StartInput").GetComponent<StartInput>().AddKey(KeyCode.Space, StartInput);
+        GameObject.Find("StartInput").GetComponent<StartInput>().AddKey(KeyCode.Return, StartInputFunc);
     }
 
-    void StartInput()
+    public void StartInputFunc()
     {
         GameObject.Find("ControlInput").GetComponent<UserInput>().PopUp();
     }
@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         // determine if we clicked a button
         if (EventSystem.current.currentSelectedGameObject != null) {
             if (EventSystem.current.currentSelectedGameObject.name.Contains("PlayerOption")) {
-                Debug.Log(EventSystem.current.currentSelectedGameObject.name);
+                //Debug.Log(EventSystem.current.currentSelectedGameObject.name);
                 EventSystem.current.SetSelectedGameObject(null);
                 return;
             }
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
 
             if (isClose) {
                 closeObjects.Add(householdObject);
-                foreach (Action act in householdObject.actions) {
+                foreach (HumanAction act in householdObject.actions) {
                     opts.Add(act);
                 }
                 foreach (Activity act in householdObject.activities) {
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
         }
 
         if (!currActivity.CheckActivityConditions()) {
-            currActivity.EndAct();
+            //currActivity.EndAct();
             currActivity = otherActivity;
             currActivityText.text = "other";
         }
@@ -124,12 +124,20 @@ public class Player : MonoBehaviour
     public void UpdateActivity(Activity act) {
         currActivityText.text = act.description;
         currActivity = act;
+        Debug.Log("CurrentAct: " + act.command);
+        //GameObject.Find("Canvas").GetComponent<StartGame>().SendHumanActivity(act.description);
+    }
+
+    // update the current activity
+    public void UpdateAction(HumanAction act)
+    {
+        //GameObject.Find("Canvas").GetComponent<StartGame>().SendHumanActivity(act.description);
     }
 
     // update the history
-    void UpdateHistory(Dictionary<string,string> devStates) {
+    //void UpdateHistory(Dictionary<string,string> devStates) {
 
-    }
+    //}
 
     public PlayerMovement GetPlayerMovement() {
         return this.pm;

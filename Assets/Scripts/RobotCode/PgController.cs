@@ -49,6 +49,7 @@ public class PgController : MonoBehaviour
             if (Vector2.Distance(this.pkg.transform.position, this.pathfinder.target.transform.position) <= 1.5f)
             {
                 this.pathfinder.target = null;
+                pkg.GetComponent<BoxCollider2D>().enabled = true;
             }
         }
 

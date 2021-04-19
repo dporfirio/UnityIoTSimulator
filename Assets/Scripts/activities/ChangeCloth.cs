@@ -18,7 +18,7 @@ public class ChangeCloth : Activity
     public override bool CheckActivityConditions()
     {
         bool isClose = this.actingObject.GetComponent<WardrobeObject>().QueryPosition();
-        if (!isClose)
+        if (!isClose || GameObject.Find("Player").GetComponent<PlayerMovement>().canMove)
         {
             this.EndAct();
             return false;
@@ -30,11 +30,11 @@ public class ChangeCloth : Activity
     public override void Act()
     {
         this.player.UpdateActivity(this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(500);
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(500, this);
     }
 
     public override void EndAct()
     {
-
+        GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = true;
     }
 }

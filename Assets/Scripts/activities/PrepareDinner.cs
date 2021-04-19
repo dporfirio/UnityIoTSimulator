@@ -18,7 +18,7 @@ public class PrepareDinner : Activity
     public override bool CheckActivityConditions()
     {
         bool isClose = this.actingObject.GetComponent<OvenObject>().QueryPosition();
-        if (!isClose)
+        if (!isClose || GameObject.Find("Player").GetComponent<PlayerMovement>().canMove)
         {
             this.EndAct();
             return false;
@@ -30,13 +30,17 @@ public class PrepareDinner : Activity
     public override void Act()
     {
         this.player.UpdateActivity(this);
-        GameObject.Find("Dinner").GetComponent<SpriteRenderer>().enabled = true;
-        GameObject.Find("Dinner").GetComponent<DinnerObject>().enabled = true;
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(500);
+        GameObject.Find("Oven").GetComponent<OvenObject>().state = "on";
+
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(250, this);
     }
 
     public override void EndAct()
     {
-
+        GameObject.Find("Oven").GetComponent<OvenObject>().state = "off";
+        GameObject.Find("Dinner").GetComponent<SpriteRenderer>().enabled = true;
+        GameObject.Find("Dinner").GetComponent<DinnerObject>().distanceBound = 3;
+        GameObject.Find("Dinner").GetComponent<DinnerObject>().enabled = true;
+        GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = true;
     }
 }

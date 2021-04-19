@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class UserInput : MonoBehaviour
 {
-    public string s;
-    public GameObject inputField;
-    public GameObject textDisplay;
+    
+    public InputField inputField;
+    //public GameObject textDisplay;
     public GameObject popUpUI;
     
 
@@ -20,19 +20,23 @@ public class UserInput : MonoBehaviour
 
     public void StoreInput()
     {
-        s = inputField.GetComponent<Text>().text;
-        textDisplay.GetComponent<Text>().text = "The user said" + s;
-
+        string s = "";
+        s = inputField.text;
+        inputField.Select();
+        inputField.text = "";
+        GameObject.Find("Canvas").GetComponent<StartGame>().SendHumanFeedback(s);
     }
 
     public void PopUp()
     {
         if (popUpUI.activeSelf) {
             popUpUI.SetActive(false);
+            GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartAll();
         }
         else
         {
             popUpUI.SetActive(true);
+            GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StopAll();
         }
         
     }

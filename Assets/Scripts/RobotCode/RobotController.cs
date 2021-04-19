@@ -10,11 +10,14 @@ public class RobotController : MonoBehaviour
 	private GameObject rg;
 	private Program packageRetrieve;
     private Program vacuum;
-    private Program coffee;
-	private Trigger triggers;
+    //private Program coffee;
+    private Program phonecall;
+	public Trigger triggers;
     private EventHub ehub;
     private GameObject[] goals;
     private int goalIdx;
+
+    public string state;
 
     // Start is called before the first frame update
     void Start()
@@ -31,16 +34,21 @@ public class RobotController : MonoBehaviour
         // setup each individual program that the robot can run
         this.packageRetrieve = GameObject.Find("RetrievePackageProgram").gameObject.GetComponent<RetrievePackageProgram>();
         this.vacuum = GameObject.Find("VacuumProgram").gameObject.GetComponent<VacuumProgram>();
-        this.coffee = GameObject.Find("MakeCoffeeProgram").gameObject.GetComponent<MakeCoffeeProgram>();
+        //this.coffee = GameObject.Find("MakeCoffeeProgram").gameObject.GetComponent<MakeCoffeeProgram>();
+        this.phonecall = GameObject.Find("PhoneCallProgram").gameObject.GetComponent<PhoneCallProgram>();
 
         // register each individual trigger
         this.triggers = new Trigger();
         this.triggers.RegisterActionWithTrigger("PackageArrives",this.packageRetrieve);
         this.triggers.RegisterActionWithTrigger("VacuumTime", this.vacuum);
-        this.triggers.RegisterActionWithTrigger("MakeCoffeeTime", this.coffee);
+        //this.triggers.RegisterActionWithTrigger("MakeCoffeeTime", this.coffee);
+        this.triggers.RegisterActionWithTrigger("PhoneCalls", this.phonecall);
+
 
         this.goals = null;
         this.goalIdx = -1;
+
+        this.state = "Idle";
     }
 
     // Update is called once per frame
@@ -58,43 +66,80 @@ public class RobotController : MonoBehaviour
                 }
             }
         }
+
         GameObject home = GameObject.Find("Window_right");
         Transform tar = this.pathfinder.target;
 
-        GameObject pg = GameObject.Find("PackageDelivery");
-        // check if package is picked up
-        if (pg != null && tar == pg.transform)
+        switch(this.state)
         {
-            if (Vector2.Distance(this.rg.transform.position, tar.position) <= 1.5F)
-            {
-                Debug.Log("PkgArrival1");
-                GameObject.Find("PackageDelivery").GetComponent<PgController>().MoveToChair();
-                SetDestination(GameObject.Find("Chair_office"));
-            } 
+            case "Vacuum":
+                // check if all goals have been completed
+                if (goalIdx != -1)
+                {
+                    if (Vector2.Distance(this.rg.transform.position, this.pathfinder.target.transform.position) <= 3.2F)
+                    {
+                        // unfinish all goals yet
+                        if (goalIdx != goals.Length - 1)
+                        {
+                            Debug.Log("Complete current goal");
+                            goalIdx += 1;
+                            SetDestination(goals[goalIdx]);
+                        }
+                        else
+                        {
+                            Debug.Log("Finish all goals");
+                            goalIdx = -1;
+                            goals = null;
+                            FindObjectOfType<AudioManager>().Stop("Vacuum");
+                            this.state = "Idle";
+                        }
+
+                    }
+                }
+                break;
+            case "Retrieve Package":
+                GameObject pg = GameObject.Find("PackageDelivery");
+                // check if package is picked up
+                if (pg != null && tar == pg.transform)
+                {
+                    if (Vector2.Distance(this.rg.transform.position, tar.position) <= 1.5F)
+                    {
+                        Debug.Log("PkgArrival1");
+                        GameObject.Find("PackageDelivery").GetComponent<PgController>().MoveToChair();
+                        SetDestination(GameObject.Find("Chair_office"));
+                    }
+                }
+
+                // check if package is put in office
+                GameObject chair = GameObject.Find("Chair_office");
+                if (chair != null && tar == chair.transform)
+                {
+                    if (Vector2.Distance(this.rg.transform.position, this.pathfinder.target.transform.position) <= 2.3F)
+                    {
+                        Debug.Log("PkgArrival2");
+                        SetDestination(home);
+                        pg.name = "ArrivedPackage";
+                        this.state = "Idle";
+                    }
+                }
+                break;
+            case "Remind Phonecall":
+                // check if reminded user already
+                GameObject player = GameObject.Find("Player");
+                if (player != null && tar == player.transform)
+                {
+                    if (Vector2.Distance(this.rg.transform.position, this.pathfinder.target.transform.position) <= 2F)
+                    {
+                 
+                        FindObjectOfType<AudioManager>().Stop("PhoneCall3");
+                        SetDestination(home);
+                        this.state = "Idle";
+                    }
+                }
+                break;
         }
 
-        // check if package is put in office
-        GameObject chair = GameObject.Find("Chair_office");
-        if (chair != null && tar == chair.transform)
-        {
-            if (Vector2.Distance(this.rg.transform.position, this.pathfinder.target.transform.position) <= 2.3F)
-            {
-                Debug.Log("PkgArrival2");
-                ResetDest();
-                pg.name = "ArrivedPackage";
-            }
-        }
-
-        GameObject drink = GameObject.Find("Drink_kitchen");
-        if (drink != null && tar == drink.transform)
-        {
-            if (Vector2.Distance(this.rg.transform.position, this.pathfinder.target.transform.position) <= 1.3F)
-            {
-                Debug.Log("Made Coffee");
-                SetDestination(home);
-            }
-        }
-
+        // check if arrives home
         if (tar == home.transform)
         {
             if (Vector2.Distance(this.rg.transform.position, this.pathfinder.target.transform.position) <= 1.3F)
@@ -103,30 +148,6 @@ public class RobotController : MonoBehaviour
                 ResetDest();
             }
         }
-
-        // check if all goals have been completed
-        if (goalIdx != -1)
-        {
-            if (Vector2.Distance(this.rg.transform.position, this.pathfinder.target.transform.position) <= 3.2F)
-            {
-                // unfinish all goals yet
-                if (goalIdx != goals.Length - 1)
-                {
-                    Debug.Log("Complete current goal");
-                    goalIdx += 1;
-                    SetDestination(goals[goalIdx]);
-                } else
-                {
-                    Debug.Log("Finish all goals");
-                    goalIdx = -1;
-                    goals = null;
-                    FindObjectOfType<AudioManager>().Stop("Vacuum");
-                    ResetDest();
-                }
-
-            }
-        }
-
     }
 
     public void SetDestination(GameObject any) {

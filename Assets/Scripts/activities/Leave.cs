@@ -12,7 +12,7 @@ public class Leave : Activity
     	this.actingObject = bed;
         this.player = player;
         this.command = "leave";
-        this.description = "left the house";
+        this.description = "leaving";
     }
 
     public override bool CheckActivityConditions() {

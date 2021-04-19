@@ -1,32 +1,38 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Trigger {
 
 	//private Dictionary<TriggerType,Program> TAP;
 	private Dictionary<string, Program> TAP;
+	private Dictionary<Program, List<Conditional>> CAP;
 
 	public Trigger() {
 		//this.TAP = new Dictionary<TriggerType,Program>();
 		this.TAP = new Dictionary<string, Program>();
+		this.CAP = new Dictionary<Program, List<Conditional>>();
 	}
 
 	public void RegisterActionWithTrigger(string trigger, Program action) {
 		this.TAP.Add(trigger, action);
     }
 
-	public void RegisterActionWithConditional(Conditional cond, Program action) {
-
+	public void RegisterActionWithConditional(Program action, Conditional cond) {
+		List<Conditional> conds;
+		if (this.CAP.TryGetValue(action, out conds))
+        {
+			conds.Add(cond);
+        }
+			
 	}
 
-	public void CheckConditional(Conditional cond) {
+	//public bool CheckConditional(Conditional cond) {
 
-		// lookup if conditional in dictionary
+	//	// lookup if conditional in dictionary
+		
 
-		// check if allowed to fire
-
-		// if allowed, fire program
-
-	}
+	//	return true;
+	//}
 
 	public bool CheckTrigger(string trigger) {
 
@@ -37,12 +43,34 @@ public class Trigger {
 		// if allowed, fire program
 		Program value;
 
+		// if allowed, check condition
+		List<Conditional> conds;
+
 		// check if it's in dict
 		if (this.TAP.TryGetValue(trigger, out value)) {
-			// CheckConditional()
-			// skip check restriction for now
-			value.Execute();
-			return true;
+			if(this.CAP.TryGetValue(value, out conds))
+            {
+				// FIND!!
+				bool tmpStop = false;
+
+				foreach (Conditional cond in conds) // OR
+                {
+					if (cond.CompareStopCondition()) // AND
+					{
+						tmpStop = true;
+					}
+				}
+				if (!tmpStop)
+                {
+					value.Execute();
+					return true;
+				} else
+                {
+					Debug.Log("Current beh is banned!");
+                }
+
+            }
+
 		}
 
 		return false;

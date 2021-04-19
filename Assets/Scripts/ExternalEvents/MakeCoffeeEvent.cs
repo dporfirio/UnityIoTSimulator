@@ -18,11 +18,11 @@ public class MakeCoffeeEvent : ExternalEvent {
 	}
 
 	public override void Execute() {
-		Debug.Log("Executing Making Coffee event!");
+		//Debug.Log("Executing Making Coffee event!");
 
 
 		// send the trigger
-		this.ehub.AddTrigger("MakeCoffeeTime", true);
+		//this.ehub.AddTrigger("MakeCoffeeTime", true);
 	}
 
 	public void SetEventHub(EventHub eh) {

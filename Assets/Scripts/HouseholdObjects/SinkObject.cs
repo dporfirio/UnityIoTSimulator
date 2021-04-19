@@ -9,11 +9,11 @@ public class SinkObject : HouseObject
         GameObject g = GameObject.Find("PlayerCanvas");
         this.player = g.GetComponent<Player>();
         this.player.registerObject(this);
-        this.actions = new List<Action>();
+        this.actions = new List<HumanAction>();
         this.activities = new List<Activity>();
 
         // add list of activities and actions
-        Activity drinkActivity = new WashHands(gameObject, this.player);
+        Activity drinkActivity = new BrushTeeth(gameObject, this.player);
         this.activities.Add(drinkActivity);
     }
 }

@@ -30,13 +30,16 @@ public class HaveDinner : Activity
     public override void Act()
     {
         this.player.UpdateActivity(this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(500);
-        GameObject.Find("Dinner").GetComponent<SpriteRenderer>().enabled = false;
-        GameObject.Find("Dinner").GetComponent<DinnerObject>().enabled = false;
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(150,this);
+
     }
 
     public override void EndAct()
     {
-
+        GameObject.Find("Dinner").GetComponent<SpriteRenderer>().enabled = false;
+        GameObject.Find("Dinner").GetComponent<DinnerObject>().distanceBound = 0;
+        GameObject.Find("Dinner").GetComponent<DinnerObject>().enabled = false;
+        //GameObject.Find("Dinner").SetActive(false);
+        GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = true;
     }
 }

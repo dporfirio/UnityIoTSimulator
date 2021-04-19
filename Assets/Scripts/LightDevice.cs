@@ -10,19 +10,22 @@ public class LightDevice : IoTDevice {
 
 	void Start() {
 		GameObject g = GameObject.Find("PlayerCanvas");
+
         this.player = g.GetComponent<Player>();
 		this.player.registerObject(this);
-		this.isActive = false;
-		this.determineState(); // false is off
-		this.actions = new List<Action>();
-		this.activities = new List<Activity>();
 
 		// set the max intensity of the light
 		this.maxIntensity = 1.0F;
 		this.minIntensity = 0.1F;
 
+		this.isActive = false;
+		gameObject.GetComponent<Light2D>().intensity = 0.1F;
+		this.determineState(); // false is off
+		this.actions = new List<HumanAction>();
+		this.activities = new List<Activity>();
+
 		// add list of activities and actions
-		Action lightAction = new TurnLight(this,gameObject);
+		HumanAction lightAction = new TurnLight(this,gameObject);
 		this.actions.Add(lightAction);
 	}
 
