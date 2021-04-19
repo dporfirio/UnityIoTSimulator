@@ -3,38 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class WashDish : Activity
+public class WashDish : HumanAction
 {
 
     // Start is called before the first frame update
-    public WashDish(GameObject any, Player player)
+    public WashDish(GameObject any)
     {
         this.actingObject = any;
-        this.player = player;
-        this.command = "wash dish";
-        this.description = "washing dish";
+
+        string state = any.GetComponent<DishwasherObject>().state;
+        if (state == "on")
+            this.command = "turn off dishwasher";
+        else
+            this.command = "turn on dishwasher";
+        this.description = "washing dishes";
     }
 
-    public override bool CheckActivityConditions()
-    {
-        bool isClose = this.actingObject.GetComponent<SinkObject>().QueryPosition();
-        if (!isClose)
-        {
-            this.EndAct();
-            return false;
-        }
-        else
-            return true;
-    }
 
     public override void Act()
     {
-        this.player.UpdateActivity(this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(500);
+        GameObject g = GameObject.Find("PlayerCanvas");
+        Player player = g.GetComponent<Player>();
+
+        // send action to the backend
+        player.UpdateAction(this);
+
+        GameObject dw = GameObject.Find("Dishwasher");
+        string state = dw.GetComponent<DishwasherObject>().state;
+        if (state == "on")
+        {
+            dw.GetComponent<DishwasherObject>().state = "off";
+            this.command = "turn on dishwasher";
+        }
+        else
+        {
+            dw.GetComponent<DishwasherObject>().state = "on";
+            this.command = "turn off dishwasher";
+        }
+
     }
 
-    public override void EndAct()
-    {
-
-    }
 }

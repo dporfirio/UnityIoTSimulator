@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class WashHands : Activity
+public class TakeCall : Activity
 {
 
     // Start is called before the first frame update
-    public WashHands(GameObject any, Player player)
+    public TakeCall(GameObject any, Player player)
     {
         this.actingObject = any;
         this.player = player;
-        this.command = "wash hands";
-        this.description = "washing hands";
+        this.command = "take phone call";
+        this.description = "talking on the phone";
     }
 
     public override bool CheckActivityConditions()
     {
-        bool isClose = this.actingObject.GetComponent<SinkObject>().QueryPosition();
+        bool isClose = this.actingObject.GetComponent<OfficePcObject>().QueryPosition();
         if (!isClose)
         {
             this.EndAct();
@@ -30,11 +30,11 @@ public class WashHands : Activity
     public override void Act()
     {
         this.player.UpdateActivity(this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(500, this);
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFlyAndStop(200, this);
     }
 
     public override void EndAct()
     {
-
+        GameObject.Find("ComputerOffice").GetComponent<PhoneObject>().distanceBound = 0;
     }
 }

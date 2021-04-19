@@ -3,38 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class Laundary : Activity
+public class Laundary : HumanAction
 {
 
     // Start is called before the first frame update
-    public Laundary(GameObject any, Player player)
+    public Laundary(GameObject any)
     {
         this.actingObject = any;
-        this.player = player;
-        this.command = "change clothes";
-        this.description = "changing clothes";
+
+        string state = any.GetComponent<WasherObject>().state;
+        if (state == "on")
+            this.command = "turn off washer";
+        else
+            this.command = "turn on washer";
+        this.description = "doing laundry";
     }
 
-    public override bool CheckActivityConditions()
-    {
-        bool isClose = this.actingObject.GetComponent<WasherObject>().QueryPosition();
-        if (!isClose)
-        {
-            this.EndAct();
-            return false;
-        }
-        else
-            return true;
-    }
 
     public override void Act()
     {
-        this.player.UpdateActivity(this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(500);
+        GameObject g = GameObject.Find("PlayerCanvas");
+        Player player = g.GetComponent<Player>();
+
+        // send action to the backend
+        player.UpdateAction(this);
+
+        GameObject dw = GameObject.Find("Washer");
+        string state = dw.GetComponent<WasherObject>().state;
+        if (state == "on")
+        {
+            dw.GetComponent<WasherObject>().state = "off";
+            this.command = "turn on washer";
+        }
+        else
+        {
+            dw.GetComponent<WasherObject>().state = "on";
+            this.command = "turn off washer";
+        }
+
     }
 
-    public override void EndAct()
-    {
-
-    }
 }
