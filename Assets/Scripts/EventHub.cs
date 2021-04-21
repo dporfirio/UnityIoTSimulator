@@ -55,7 +55,7 @@ public class EventHub : MonoBehaviour
         if (persistence)
             this.triggers.Add(trigger,-1);
         else
-            this.triggers.Add(trigger,5);   // trigger goes away after 5 update calls
+            this.triggers.Add(trigger,1);   // trigger goes away after 5 update calls
     }
 
     public void RemoveTrigger(string trigger) {

@@ -178,7 +178,6 @@ public class TimeUpdater : MonoBehaviour
 	IEnumerator timeInfi(int inc)
 	{
 		ChangeInc(inc);
-		Debug.Log("start");
 
 		while (true)
 		{
@@ -193,7 +192,6 @@ public class TimeUpdater : MonoBehaviour
 		StopCoroutine(this.co);
 		ChangeInc(1);
 		this.co = null;
-		Debug.Log("stop!!");
 	}
 
 
@@ -202,7 +200,6 @@ public class TimeUpdater : MonoBehaviour
         int cnt = 0;
 
 		ChangeInc(15);
-		Debug.Log("start");
 
 		while (cnt <= duration)
         {
@@ -211,7 +208,6 @@ public class TimeUpdater : MonoBehaviour
             //GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = false;
 
         }
-        Debug.Log("end" + this.act);
 		this.act.EndAct();
 		GameObject.Find("PlayerCanvas").GetComponent<Player>().currActivity = new Other();
 		GameObject.Find("PlayerCanvas").GetComponent<Player>().currActivityText.text = "other";

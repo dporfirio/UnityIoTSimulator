@@ -48,6 +48,12 @@ public class Trigger {
 
 		// check if it's in dict
 		if (this.TAP.TryGetValue(trigger, out value)) {
+			Debug.Log(this.CAP.Count);
+			if (this.CAP.Count == 0)
+            {
+				value.Execute();
+				return true;
+			}
 			if(this.CAP.TryGetValue(value, out conds))
             {
 				// FIND!!

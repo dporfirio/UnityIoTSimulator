@@ -32,7 +32,7 @@ public class PgController : MonoBehaviour
         
         if (this.gameObject != null)
         {
-            Debug.Log(this.gameObject);
+            //Debug.Log(this.gameObject);
             // check if speed is updated:
 
             AIPath tmp = this.gameObject.GetComponent<AIPath>();
