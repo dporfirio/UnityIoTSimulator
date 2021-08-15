@@ -11,14 +11,14 @@ public class PrepareLunch : Activity
     {
         this.actingObject = any;
         this.player = player;
-        this.command = "prepare lunch";
-        this.description = "preparing lunch";
+        this.command = "prepare a meal";
+        this.description = "preparing a meal";
     }
 
     public override bool CheckActivityConditions()
     {
         bool isClose = this.actingObject.GetComponent<StoveObject>().QueryPosition();
-        if (!isClose || GameObject.Find("Player").GetComponent<PlayerMovement>().canMove)
+        if (!isClose || this.canMove)
         {
             this.EndAct();
             return false;
@@ -32,6 +32,9 @@ public class PrepareLunch : Activity
         this.player.UpdateActivity(this);
         GameObject.Find("Stove").GetComponent<StoveObject>().state = "on";
         GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(250, this);
+        GameObject.Find("Stove").GetComponent<StoveObject>().removeAct();
+        GameObject.Find("Fridge").GetComponent<FridgeObject>().removeAct();
+        GameObject.Find("Oven").GetComponent<OvenObject>().removeAct();
     }
 
     public override void EndAct()

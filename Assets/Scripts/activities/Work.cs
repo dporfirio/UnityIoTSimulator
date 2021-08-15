@@ -17,7 +17,7 @@ public class Work : Activity
 
     public override bool CheckActivityConditions() {
         bool isClose = this.actingObject.GetComponent<OfficeChairObject>().QueryPosition();
-        if (!isClose) {
+        if (!isClose || this.player.currEnergy <= 10) {
             this.EndAct();
             return false;
         }
@@ -26,10 +26,16 @@ public class Work : Activity
     }
 
     public override void Act() {
-        this.player.UpdateActivity(this);
-        //GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(1000);
-        GameObject.Find("ComputerOffice").GetComponent<OfficePcObject>().state = "on";
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartTimeFly(this, 15);
+
+        if (GameObject.Find("PlayerCanvas").GetComponent<Player>().currEnergy > 10) { 
+            this.player.UpdateActivity(this);
+            //GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(1000);
+            GameObject.Find("ComputerOffice").GetComponent<OfficePcObject>().state = "on";
+            GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartTimeFly(this, 30);
+        } else
+        {
+            Debug.Log("cannot work");
+        }
     }
 
     public override void EndAct() {

@@ -22,7 +22,7 @@ public class Lock : HumanAction
 
     public override void Act()
     {
-        GameObject dw = GameObject.Find("Door_front");
+        GameObject dw = GameObject.Find("Door");
         string state = dw.GetComponent<FrontDoorObject>().state;
         if (state == "Lock")
         {

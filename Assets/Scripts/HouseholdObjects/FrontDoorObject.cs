@@ -21,6 +21,8 @@ public class FrontDoorObject : IoTDevice
         // add list of activities and actions
         HumanAction action = new Lock(gameObject);
         this.actions.Add(action);
+        Leave act2 = new Leave(gameObject, this.player);
+        this.activities.Add(act2);
     }
 
 }

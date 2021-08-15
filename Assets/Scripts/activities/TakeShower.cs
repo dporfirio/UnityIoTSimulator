@@ -18,7 +18,7 @@ public class TakeShower: Activity
     public override bool CheckActivityConditions()
     {
         bool isClose = this.actingObject.GetComponent<BathSinkObject>().QueryPosition();
-        if (!isClose || GameObject.Find("Player").GetComponent<PlayerMovement>().canMove)
+        if (!isClose || this.canMove)
         {
             this.EndAct();
             return false;

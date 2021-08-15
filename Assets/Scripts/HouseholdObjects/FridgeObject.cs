@@ -16,4 +16,16 @@ public class FridgeObject : HouseObject
         Activity drinkActivity = new PrepareBreakfast(gameObject, this.player);
         this.activities.Add(drinkActivity);
     }
+
+    public void removeAct()
+    {
+        Activity drinkActivity = new PrepareBreakfast(gameObject, this.player);
+        this.activities.RemoveAt(0);
+    }
+
+    public void addAct()
+    {
+        Activity drinkActivity = new PrepareBreakfast(gameObject, this.player);
+        this.activities.Add(drinkActivity);
+    }
 }

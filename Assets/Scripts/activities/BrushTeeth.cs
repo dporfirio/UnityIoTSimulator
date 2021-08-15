@@ -18,7 +18,7 @@ public class BrushTeeth : Activity
     public override bool CheckActivityConditions()
     {
         bool isClose = this.actingObject.GetComponent<SinkObject>().QueryPosition();
-        if (!isClose || GameObject.Find("Player").GetComponent<PlayerMovement>().canMove)
+        if (!isClose || this.canMove)
         {
             this.EndAct();
             return false;
@@ -30,7 +30,7 @@ public class BrushTeeth : Activity
     public override void Act()
     {
         this.player.UpdateActivity(this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(300, this);
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(150, this);
     }
 
     public override void EndAct()

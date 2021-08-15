@@ -11,8 +11,8 @@ public class HaveLunch : Activity
     {
         this.actingObject = food;
         this.player = player;
-        this.command = "have lunch";
-        this.description = "having lunch";
+        this.command = "have a meal";
+        this.description = "having a meal";
     }
 
     public override bool CheckActivityConditions()
@@ -30,8 +30,11 @@ public class HaveLunch : Activity
     public override void Act()
     {
         this.player.UpdateActivity(this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(150, this);
-
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(200, this);
+        GameObject.Find("Oven").GetComponent<OvenObject>().addAct();
+        GameObject.Find("Stove").GetComponent<StoveObject>().addAct();
+        GameObject.Find("Fridge").GetComponent<FridgeObject>().addAct();
+        GameObject.Find("PlayerCanvas").GetComponent<Player>().AddEnergy(50);
 
     }
 

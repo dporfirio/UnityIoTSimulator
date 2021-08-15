@@ -17,4 +17,15 @@ public class StoveObject : IoTDevice
         Activity drinkActivity = new PrepareLunch(gameObject, this.player);
         this.activities.Add(drinkActivity);
     }
+    public void removeAct()
+    {
+        Activity drinkActivity = new PrepareLunch(gameObject, this.player);
+        this.activities.RemoveAt(0);
+    }
+
+    public void addAct()
+    {
+        Activity drinkActivity = new PrepareLunch(gameObject, this.player);
+        this.activities.Add(drinkActivity);
+    }
 }

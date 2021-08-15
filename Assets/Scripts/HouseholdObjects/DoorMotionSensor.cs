@@ -6,6 +6,7 @@ public class DoorMotionSensor : IoTDevice
 {
 
     private bool isClose;
+    public GameObject playerObj;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class DoorMotionSensor : IoTDevice
 
     void Update()
     {
-        if (GameObject.Find("Player") != null) { 
+        if (playerObj != null) { 
              this.isClose = this.QueryPosition();
         }
         if (!this.isClose)

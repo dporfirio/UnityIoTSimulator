@@ -17,6 +17,7 @@ public class Sleep : Activity
 
     public override bool CheckActivityConditions() {
         bool isClose = this.actingObject.GetComponent<BedObject>().QueryPosition();
+        Debug.Log("close? " + isClose);
         if (!isClose) {
             this.EndAct();
             return false;
@@ -28,7 +29,7 @@ public class Sleep : Activity
     public override void Act() {
         this.player.UpdateActivity(this);
         //GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFlyAndStop(4500, this);
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartTimeFly(this, 25);
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartTimeFly(this, 40);
     }
 
     public override void EndAct() {

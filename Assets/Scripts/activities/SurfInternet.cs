@@ -31,7 +31,7 @@ public class SurfInternet : Activity
     {
         this.player.UpdateActivity(this);
         GameObject.Find("ComputerOffice").GetComponent<OfficePcObject>().state = "on";
-        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartTimeFly(this, 15);
+        GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartTimeFly(this, 20);
     }
 
     public override void EndAct()

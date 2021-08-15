@@ -31,6 +31,7 @@ public class HaveSnack : Activity
     {
         this.player.UpdateActivity(this);
         GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().TimeFly(150, this);
+        GameObject.Find("PlayerCanvas").GetComponent<Player>().AddEnergy(10);
     }
 
     public override void EndAct()

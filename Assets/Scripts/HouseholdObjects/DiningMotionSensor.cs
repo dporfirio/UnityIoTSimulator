@@ -5,6 +5,7 @@ using UnityEngine;
 public class DiningMotionSensor : IoTDevice
 {
     private bool isClose;
+    public GameObject playerObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,11 +14,12 @@ public class DiningMotionSensor : IoTDevice
         this.isActive = true;
         this.state = "Idle";
         this.isClose = false;
+        
     }
 
     void Update()
     {
-        if (GameObject.Find("Player") != null)
+        if (playerObj != null)
         {
             this.isClose = this.QueryPosition();
         }

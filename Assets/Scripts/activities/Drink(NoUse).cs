@@ -18,7 +18,7 @@ public class Drink : Activity
     public override bool CheckActivityConditions()
     {
         bool isClose = this.actingObject.GetComponent<DrinkKitchenObject>().QueryPosition();
-        if (!isClose || GameObject.Find("Player").GetComponent<PlayerMovement>().canMove)
+        if (!isClose || this.canMove)
         {
             this.EndAct();
             return false;

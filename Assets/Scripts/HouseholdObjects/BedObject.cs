@@ -16,6 +16,9 @@ public class BedObject : HouseObject
 		// add list of activities and actions
 		Activity sleepActivity = new Sleep(gameObject,this.player);
 		this.activities.Add(sleepActivity);
+
+        Activity napActivity = new NapBed(gameObject, this.player);
+        this.activities.Add(napActivity);
     }
 
 }
