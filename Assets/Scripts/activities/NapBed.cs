@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class NapSofa : Activity
+public class NapBed : Activity
 {
     // Start is called before the first frame update
-    public NapSofa(GameObject bed, Player player)
+    public NapBed(GameObject bed, Player player)
     {
     	this.actingObject = bed;
         this.player = player;
@@ -15,7 +15,7 @@ public class NapSofa : Activity
     }
 
     public override bool CheckActivityConditions() {
-        bool isClose = this.actingObject.GetComponent<CouchObject>().QueryPosition();
+        bool isClose = this.actingObject.GetComponent<BedObject>().QueryPosition();
         if (!isClose) {
             this.EndAct();
             return false;
