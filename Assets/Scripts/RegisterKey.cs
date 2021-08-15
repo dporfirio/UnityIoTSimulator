@@ -2,21 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartInput : MonoBehaviour
+// This class is used to bound keys to certain functions in the game, such as "Enter" to open the feedback pop-up window.
+public class RegisterKey : MonoBehaviour
 {
     Dictionary<KeyCode, System.Action> buttonKeys;
 
-    // Start is called before the first frame update
     void Awake()
     {
         buttonKeys = new Dictionary<KeyCode, System.Action>();
 
     }
 
-    // Update is called once per frame
     void OnGUI()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
         Event e = Event.current;
         if (e != null && e.type == EventType.KeyDown)
         {
