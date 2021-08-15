@@ -24,6 +24,9 @@ public class VacuumProgram : Program {
 		GameObject eight = GameObject.Find("Door");
 		GameObject home = GameObject.Find("Window_right");
 		GameObject[] arr = new GameObject[9] { one, two, three, four, five, six, seven, eight, home };
+
+		GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().ChangeInc(1);
+
 		this.rctrl.SetGoals(arr);
 		this.rctrl.state = "Vacuum";
 	}

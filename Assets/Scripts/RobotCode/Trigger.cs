@@ -17,6 +17,15 @@ public class Trigger {
 		this.TAP.Add(trigger, action);
     }
 
+	public void CleanConditionals(Program act)
+    {
+		List<Conditional> conds;
+		if (this.CAP.TryGetValue(act, out conds))
+		{
+			conds.Clear();
+		}
+	}
+
 	public void RegisterActionWithConditional(Program action, Conditional cond) {
 		List<Conditional> conds;
 		if (this.CAP.TryGetValue(action, out conds))
@@ -54,19 +63,31 @@ public class Trigger {
 				value.Execute();
 				return true;
 			}
+
+
 			if(this.CAP.TryGetValue(value, out conds))
             {
+				bool tmpAct = false;
+
+				foreach (Conditional cond in conds) // OR
+				{
+					if (cond.CompareCondition(false)) // AND
+					{
+						tmpAct = true;
+					}
+				}
+
 				// FIND!!
 				bool tmpStop = false;
 
 				foreach (Conditional cond in conds) // OR
                 {
-					if (cond.CompareStopCondition()) // AND
+					if (cond.CompareCondition(true)) // AND
 					{
 						tmpStop = true;
 					}
 				}
-				if (!tmpStop)
+				if (tmpAct && !tmpStop)
                 {
 					value.Execute();
 					return true;

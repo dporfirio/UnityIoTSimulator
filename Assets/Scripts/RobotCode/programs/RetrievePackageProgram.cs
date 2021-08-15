@@ -18,8 +18,10 @@ public class RetrievePackageProgram : Program {
 			return;
 		}
 
-        // attempt to set destination to package
-        this.rctrl.SetDestination(pg);
+		GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().ChangeInc(1);
+
+		// attempt to set destination to package
+		this.rctrl.SetDestination(pg);
 		this.rctrl.state = "Retrieve Package";
 	}
 

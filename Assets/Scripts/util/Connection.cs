@@ -2,30 +2,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using SimpleJSON;
+using UnityEngine.SceneManagement;
 
 using NativeWebSocket;
 
-[Serializable]
 class CloudMessage
 {
     public string msgType;
-    public string data = null;
+    public string data;
 }
 
-[Serializable]
 class StringArray
 {
     public string[] array;
 }
 
-[Serializable]
 class String2DArray
 {
     public StringArray[] arr;
 }
 
-[Serializable]
 class DeviceUpdateMsg
 {
     public string behavior;
@@ -36,17 +33,22 @@ class DeviceUpdateMsg
 public class Connection : MonoBehaviour
 {
     WebSocket websocket;
+    public RegisterKey rKey;
 
     // Start is called before the first frame update
     async void Start()
     {
-        websocket = new WebSocket("ws://localhost:8080");
-        //websocket = new WebSocket("ws://34.123.149.60:8765");
-        //websocket = new WebSocket("ws://34.123.149.60:8765");
+        websocket = new WebSocket("wss://constrainrobot.cs.wisc.edu");
+        //websocket = new WebSocket("ws://localhost:8080");
 
         websocket.OnOpen += () =>
         {
             Debug.Log("Connection open!");
+            GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StopAll();
+
+            // Disable trigger feedback
+            rKey.RemoveKey(KeyCode.Return);
+
         };
 
         websocket.OnError += (e) =>
@@ -71,7 +73,10 @@ public class Connection : MonoBehaviour
                     HandlePause();
                     break;
                 case "CUpdate":
-                    HandleCUpdate(cm);
+                    //Debug.Log(cm.data);
+                    //HandleCUpdate(cm);
+
+                    HandleCUpdate(JSON.Parse(message));
                     break;
                 case "Start":
                     HandleStart(cm);
@@ -96,35 +101,33 @@ public class Connection : MonoBehaviour
 
     void HandlePause()
     {
-        //Time.timeScale = 0;
         GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StopAll();
-        //GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = false;
 
         // Disable trigger feedback
-        GameObject.Find("StartInput").GetComponent<StartInput>().RemoveKey(KeyCode.Return);
+        rKey.RemoveKey(KeyCode.Return);
     }
 
-    void HandleCUpdate(CloudMessage cm)
+    void HandleCUpdate(JSONNode cm)
     {
-        DeviceUpdateMsg cu = JsonUtility.FromJson<DeviceUpdateMsg>(cm.data);
         bool stop = false;
 
         // if it's stop or not
-        if (cu.behavior.Contains("stop"))
+        if (cm["behavior"].Value.Contains("stop"))
         {
             stop = true;
-        } 
+        }
         Program pro = null;
         string beh;
         if (stop)
         {
-            beh = cu.behavior.Split('_')[1];
-        } else
+            beh = cm["behavior"].Value.Split('_')[1];
+        }
+        else
         {
-            beh = cu.behavior;
+            beh = cm["behavior"].Value;
         }
 
-        switch(beh)
+        switch (beh)
         {
             case "remindcalls":
                 pro = GameObject.Find("PhoneCallProgram").gameObject.GetComponent<PhoneCallProgram>();
@@ -135,42 +138,60 @@ public class Connection : MonoBehaviour
             case "pickuppackage":
                 pro = GameObject.Find("RetrievePackageProgram").gameObject.GetComponent<RetrievePackageProgram>();
                 break;
+            case "makefood":
+                pro = GameObject.Find("MakeFoodProgram").gameObject.GetComponent<MakeFoodProgram>();
+                break;
         }
         if (stop)
         {
-            foreach (StringArray tmp in cu.deactivating.arr)
+            foreach (JSONNode tmp in cm["deactivating"]["arr"].Values)
             {
                 Conditional cond = new Conditional(); // AND condition
-                 
-                
-                foreach (string devicename in tmp.array)
+
+
+                foreach (string devicename in tmp["array"].Values)
                 {
-                    cond.RegisterStopCondition(devicename.Split('_')[0], devicename.Split('_')[1]);
+                    cond.RegisterCondition(devicename.Split('_')[0], devicename.Split('_')[1], true);
                 }
 
                 GameObject.Find("Robot").GetComponent<RobotController>().triggers.RegisterActionWithConditional(pro, cond);
 
             }
-        } else
+        }
+        else
         {
-            foreach (StringArray tmp in cu.activating.arr)
+            // currently this part is not used.
+            foreach (JSONNode tmp in cm["activating"]["arr"].Values)
             {
-                foreach (string devicename in tmp.array)
+                Conditional cond = new Conditional(); // AND condition
+                foreach (string devicename in tmp["array"].Values)
                 {
-                    // TODO!
+                    cond.RegisterCondition(devicename.Split('_')[0], devicename.Split('_')[1], false);
                 }
+                GameObject.Find("Robot").GetComponent<RobotController>().triggers.RegisterActionWithConditional(pro, cond);
             }
         }
     }
 
+    // Pop up the feedback window
+    void StartInputFunc()
+    {
+        GameObject.Find("ControlInput").GetComponent<UserInput>().PopUp();
+    }
+
     void HandleStart(CloudMessage cm)
     {
+        if (GameObject.Find("LoadScreen") != null)
+        {
+            GameObject.Find("LoadScreen").SetActive(false);
+            GameObject.Find("Background").SetActive(false);
+        }
         //Time.timeScale = 1;
         Debug.Log("received to Start!!");
         GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartAll();
         //GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = true;
         // Enable trigger feedback
-        GameObject.Find("StartInput").GetComponent<StartInput>().AddKey(KeyCode.Return, GameObject.Find("PlayerCanvas").GetComponent<Player>().StartInputFunc);
+        rKey.AddKey(KeyCode.Return, StartInputFunc);
     }
 
     async void KeepConnected()
@@ -184,6 +205,7 @@ public class Connection : MonoBehaviour
 
     async public void SendWebSocketMessage(String msg)
     {
+
         if (websocket.State == WebSocketState.Open)
         {
             // Sending plain text

@@ -11,6 +11,7 @@ public class PgController : MonoBehaviour
     private GameObject rb;
 	private Program packageRetrieve;
     private EventHub ehub;
+    private AIPath robot;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,8 @@ public class PgController : MonoBehaviour
 
         // get access to the pathfinder
         this.pathfinder = this.gameObject.GetComponent<AIDestinationSetter>();
-        
+        this.robot = GameObject.Find("Robot").gameObject.GetComponent<AIPath>();
+
     }
 
     // Update is called once per frame
@@ -37,10 +39,9 @@ public class PgController : MonoBehaviour
 
             AIPath tmp = this.gameObject.GetComponent<AIPath>();
         
-            AIPath robot = GameObject.Find("Robot").gameObject.GetComponent<AIPath>();
-            tmp.maxSpeed = robot.maxSpeed;
-            tmp.maxAcceleration = robot.maxAcceleration;
-            tmp.slowdownDistance = robot.slowdownDistance;
+            tmp.maxSpeed = this.robot.maxSpeed;
+            tmp.maxAcceleration = this.robot.maxAcceleration;
+            tmp.slowdownDistance = this.robot.slowdownDistance;
 
         }
         // check if package is picked up
