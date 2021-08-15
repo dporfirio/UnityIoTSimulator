@@ -15,8 +15,12 @@ public class Player : MonoBehaviour
     private PlayerOptions op;
     GraphicRaycaster raycaster;
 
+    public int maxEnergy = 100;
+    public int currEnergy;
+    public HealthBar healthBar;
+
     // objects in scene
-    private List<HouseObject> householdObjects;
+    public List<HouseObject> householdObjects;
 
     // player icon
     private PlayerMovement pm;
@@ -24,7 +28,7 @@ public class Player : MonoBehaviour
     // dummy activity
     private Activity otherActivity;
 
-    void Awake ()
+    void Awake()
     {
         // set up the component pane
         this.raycaster = GetComponent<GraphicRaycaster>();
@@ -48,83 +52,111 @@ public class Player : MonoBehaviour
     void Start()
     {
         currActivity = otherActivity;
-        // add Input
-        GameObject.Find("StartInput").GetComponent<StartInput>().AddKey(KeyCode.Return, StartInputFunc);
+        currEnergy = maxEnergy;
+        healthBar.SetMaxHealth(maxEnergy);
     }
 
-    public void StartInputFunc()
+    public void AddEnergy(int energy)
     {
-        GameObject.Find("ControlInput").GetComponent<UserInput>().PopUp();
+        currEnergy += energy;
+        if (currEnergy >= 100)
+        {
+            currEnergy = 100;
+        }
+        healthBar.SetHealth(currEnergy);
+    }
+
+    public void ReduceEnergy(int energy)
+    {
+        currEnergy -= energy;
+        if (currEnergy <= 0)
+        {
+            currEnergy = 0;
+        }
+        healthBar.SetHealth(currEnergy);
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
+        // REMOVE these "Click on Player" part to ClickPlayer.cs
+        //// determine if we clicked a button
+        //if (EventSystem.current.currentSelectedGameObject != null)
+        //{
+        //    if (EventSystem.current.currentSelectedGameObject.name.Contains("PlayerOption"))
+        //    {
+        //        //Debug.Log(EventSystem.current.currentSelectedGameObject.name);
+        //        EventSystem.current.SetSelectedGameObject(null);
+        //        return;
+        //    }
+        //}
 
-        // determine if we clicked a button
-        if (EventSystem.current.currentSelectedGameObject != null) {
-            if (EventSystem.current.currentSelectedGameObject.name.Contains("PlayerOption")) {
-                //Debug.Log(EventSystem.current.currentSelectedGameObject.name);
-                EventSystem.current.SetSelectedGameObject(null);
-                return;
-            }
-        }
+        //// see if we are close to anything
+        //// get the options
+        //List<Operation> opts = new List<Operation>();
+        //List<HouseObject> closeObjects = new List<HouseObject>();
+        //foreach (HouseObject householdObject in householdObjects)
+        //{
+        //    bool isClose = householdObject.QueryPosition();
 
-        // see if we are close to anything
-        // get the options
-        List<Operation> opts = new List<Operation>();
-        List<HouseObject> closeObjects = new List<HouseObject>();
-        foreach (HouseObject householdObject in householdObjects) {
-            bool isClose = householdObject.QueryPosition();
+        //    if (isClose)
+        //    {
+        //        closeObjects.Add(householdObject);
+        //        foreach (HumanAction act in householdObject.actions)
+        //        {
+        //            opts.Add(act);
+        //        }
+        //        foreach (Activity act in householdObject.activities)
+        //        {
+        //            opts.Add(act);
+        //        }
+        //    }
 
-            if (isClose) {
-                closeObjects.Add(householdObject);
-                foreach (HumanAction act in householdObject.actions) {
-                    opts.Add(act);
-                }
-                foreach (Activity act in householdObject.activities) {
-                    opts.Add(act);
-                }
-            }
+        //}
 
-        }
+        //// see if the mouse is down
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    // set yp new pointer event
+        //    PointerEventData pointerData = new PointerEventData(EventSystem.current);
+        //    List<RaycastResult> results = new List<RaycastResult>();
 
-        if (!currActivity.CheckActivityConditions()) {
-            //currActivity.EndAct();
-            currActivity = otherActivity;
-            currActivityText.text = "other";
-        }
+        //    // Raycast using the Graphics Raycaster and mouse click position
+        //    pointerData.position = Input.mousePosition;
+        //    this.raycaster.Raycast(pointerData, results);
 
-        // see if the mouse is down
-        if (Input.GetMouseButtonDown(0)) {
-            // set yp new pointer event
-            PointerEventData pointerData = new PointerEventData(EventSystem.current);
-            List<RaycastResult> results = new List<RaycastResult>();
+        //    // clear the buttons
+        //    if (results.Count == 0)
+        //    {
+        //        op.ToggleOptions(new List<Operation>());
+        //    }
+        //    else
+        //    {
+        //        foreach (RaycastResult result in results)
+        //        {
+        //            op.ToggleOptions(opts);
+        //        }
+        //    }
+        //}
 
-            // Raycast using the Graphics Raycaster and mouse click position
-            pointerData.position = Input.mousePosition;
-            this.raycaster.Raycast(pointerData, results);
-
-            // clear the buttons
-            if (results.Count == 0) {
-                op.ToggleOptions(new List<Operation>());
-            }
-            else {
-                foreach (RaycastResult result in results) {
-                    op.ToggleOptions(opts);
-                }
-            }
-        }
+        //if (!currActivity.CheckActivityConditions())
+        //{
+        //    //currActivity.EndAct();
+        //    currActivity = otherActivity;
+        //    currActivityText.text = "other";
+        //}
     }
-    
-    public void registerObject(HouseObject go) {
+
+    public void registerObject(HouseObject go)
+    {
         householdObjects.Add(go);
     }
 
     // update the current activity
-    public void UpdateActivity(Activity act) {
+    public void UpdateActivity(Activity act)
+    {
         currActivityText.text = act.description;
         currActivity = act;
-        Debug.Log("CurrentAct: " + act.command);
         //GameObject.Find("Canvas").GetComponent<StartGame>().SendHumanActivity(act.description);
     }
 
@@ -139,7 +171,8 @@ public class Player : MonoBehaviour
 
     //}
 
-    public PlayerMovement GetPlayerMovement() {
+    public PlayerMovement GetPlayerMovement()
+    {
         return this.pm;
     }
 }
