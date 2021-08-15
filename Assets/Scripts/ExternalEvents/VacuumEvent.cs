@@ -11,8 +11,8 @@ public class VacuumEvent : ExternalEvent {
 	}
 
 	public override void ReceiveTimeUpdate(int day, int hour, int min, int sec) {
-		if (day == 0 || day == 2 || day == 4) {
-			if (hour == 17 && min == 20) {
+		if (day == 1 || day == 3 || day == 5) {
+			if (hour == 16 && min == 20) {
 				this.Execute();
 			}
 		}

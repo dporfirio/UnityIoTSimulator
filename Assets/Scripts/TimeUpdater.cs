@@ -24,9 +24,10 @@ public class TimeUpdater : MonoBehaviour
 	// the time of day can affect when certain events occur
 	private EventHub es;
 
-    //private List<string> iotHistory;
     private List<IoTDevice> devices;
 	private Player player;
+
+	private PlayerMovement playerMv;
 
 	private int inc = 0;
 	private int preInc = 0;
@@ -39,6 +40,11 @@ public class TimeUpdater : MonoBehaviour
 	public int hour = 0;
 	private int secondPassed = 0;
 	private int secondForCnt = 0;
+
+	private GameObject robotGameObj;
+	private GameObject canvas;
+
+	private Image timeflyImg;
 
 	void Awake ()
     {
@@ -59,7 +65,10 @@ public class TimeUpdater : MonoBehaviour
         GameObject iotG = GameObject.Find("IoT");
         Light2D[] iotLights = iotG.GetComponentsInChildren<Light2D>();
 
-        foreach (Light2D light in iotLights) {
+		playerMv = GameObject.Find("Player").GetComponent<PlayerMovement>();
+		timeflyImg = GameObject.Find("TimeFly").GetComponent<Image>();
+
+		foreach (Light2D light in iotLights) {
         	devices.Add(light.GetComponent<LightDevice>());
         }
 	}
@@ -80,10 +89,14 @@ public class TimeUpdater : MonoBehaviour
         });
 
 		pause.isOn = true;
-		day.text = "Sunday";
+		day.text = "Monday";
 
-        //iotHistory = new List<string>();
-    }
+		this.robotGameObj = GameObject.Find("Robot");
+		this.canvas = GameObject.Find("Canvas");
+		// FOR TEST ONLY
+		//this.StartAll();
+
+	}
 
     void Update()
     {
@@ -109,40 +122,28 @@ public class TimeUpdater : MonoBehaviour
 			cb.disabledColor = Color.white;
 		}
 		tog.colors = cb;
-
-		// set the inc
-		if (play.isOn) {
-			ChangeInc(1);
-		}
-		else if (ff.isOn) {
-			ChangeInc(10);
-		}
-		else if (fff.isOn) {
-			ChangeInc(15);
-		}
-		else if (pause.isOn) {
-			ChangeInc(0);
-		}
 	}
 
 	public void StartAll()
     {
-		GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = true;
+		playerMv.canMove = true;
 		this.ChangeInc(1);
 		GameObject.Find("PlayerOptionPane").GetComponent<PlayerOptions>().buttonPrefab.GetComponent<Toggle>().interactable = true;
+		GameObject.Find("PlayerClick").GetComponent<ClickPlayer>().enabled = true;
 	}
 
 	public void StopAll()
 	{
-		GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = false;
+		playerMv.canMove = false;
 		this.ChangeInc(0);
 		GameObject.Find("PlayerOptionPane").GetComponent<PlayerOptions>().buttonPrefab.GetComponent<Toggle>().interactable = false;
+		GameObject.Find("PlayerClick").GetComponent<ClickPlayer>().enabled = false;
 	}
 
 	public void TimeFly(int duration, Activity act)
     {
 		this.act = act;
-		GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = false;
+		playerMv.canMove = false;
 		StartCoroutine(timeCount(duration));
 	}
 	
@@ -152,7 +153,6 @@ public class TimeUpdater : MonoBehaviour
 	public void TimeFlyAndStop(int duration, Activity act)
 	{
 		this.act = act;
-		//GameObject.Find("StartInput").GetComponent<StartInput>().AddKey(KeyCode.P, StopTimeFly);
 		this.co = StartCoroutine(timeCount(duration));
 	}
 
@@ -160,20 +160,9 @@ public class TimeUpdater : MonoBehaviour
 	public void StartTimeFly(Activity act, int inc)
 	{
 		this.act = act;
-		//GameObject.Find("StartInput").GetComponent<StartInput>().AddKey(KeyCode.P, StopTimeFly);
 		this.co = StartCoroutine(timeInfi(inc));
 	}
 
-	// Stop timefly by hit S
-	//public void StopTimeFly()
- //   {
-	//	StopCo();
-	//	//GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = true;
-		
-	//	Debug.Log("end " + GameObject.Find("Player").GetComponent<PlayerMovement>().canMove);
-	//	this.act.EndAct();
-	//	this.act = null;
-	//}
 
 	IEnumerator timeInfi(int inc)
 	{
@@ -182,7 +171,6 @@ public class TimeUpdater : MonoBehaviour
 		while (true)
 		{
 			yield return new WaitForSeconds(0.1F);
-			//GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = false;
 
 		}
 	}
@@ -192,6 +180,7 @@ public class TimeUpdater : MonoBehaviour
 		StopCoroutine(this.co);
 		ChangeInc(1);
 		this.co = null;
+		this.act = null;
 	}
 
 
@@ -205,19 +194,15 @@ public class TimeUpdater : MonoBehaviour
         {
 			yield return new WaitForSeconds(0.1F);
 			cnt += inc;
-            //GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = false;
 
         }
 		this.act.EndAct();
-		GameObject.Find("PlayerCanvas").GetComponent<Player>().currActivity = new Other();
-		GameObject.Find("PlayerCanvas").GetComponent<Player>().currActivityText.text = "other";
+		player.currActivity = new Other();
+		player.currActivityText.text = "other";
 
 		this.act = null;
 
 		ChangeInc(1);
-
-		//GameObject.Find("Player").GetComponent<PlayerMovement>().canMove = true;
-
     }
 
 	public void ChangeInc(int newInc)
@@ -226,9 +211,9 @@ public class TimeUpdater : MonoBehaviour
         {
 			inc = 0;
 			preInc = 0;
-			GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxSpeed = 0F;
-			GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxAcceleration = 12F;
-			GameObject.Find("Robot").gameObject.GetComponent<AIPath>().slowdownDistance = 1F;
+			//GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxSpeed = 0F;
+			//GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxAcceleration = 12F;
+			//GameObject.Find("Robot").gameObject.GetComponent<AIPath>().slowdownDistance = 1F;
 
 			return;
 		}
@@ -240,14 +225,22 @@ public class TimeUpdater : MonoBehaviour
 		if (preInc == 0)
 		{
 			preInc = 1;
-			GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxSpeed = 2.5F;
+			//GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxSpeed = 2.5F;
 		}
 
 		timeInc = (float)inc / (float)preInc;
 
-		GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxSpeed *= timeInc;
-		GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxAcceleration *= timeInc;
-		GameObject.Find("Robot").gameObject.GetComponent<AIPath>().slowdownDistance *= timeInc;
+		//GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxSpeed *= timeInc;
+		//GameObject.Find("Robot").gameObject.GetComponent<AIPath>().maxAcceleration *= timeInc;
+		//GameObject.Find("Robot").gameObject.GetComponent<AIPath>().slowdownDistance *= timeInc;
+
+		if (newInc != 0 && newInc != 1)
+        {
+			timeflyImg.enabled = true;
+        } else
+        {
+			timeflyImg.enabled = false;
+		}
 	}
 
 	void timer()
@@ -272,8 +265,6 @@ public class TimeUpdater : MonoBehaviour
 
                     secondPassed = 0; // counted every day
 
-                    //System.IO.File.WriteAllLines(@"day" + daysPassed + ".txt", iotHistory);
-                    //iotHistory.Clear();
                     if (day_int == 7) {
 						day_int = 0;
 					}
@@ -281,25 +272,25 @@ public class TimeUpdater : MonoBehaviour
 					switch (day_int)
 					{
 						case 0:
-							day.text = "Sunday";
-							break;
-						case 1:
 							day.text = "Monday";
 							break;
-						case 2:
+						case 1:
 							day.text = "Tuesday";
 							break;
-						case 3:
+						case 2:
 							day.text = "Wednesday";
 							break;
-						case 4:
+						case 3:
 							day.text = "Thursday";
 							break;
-						case 5:
+						case 4:
 							day.text = "Friday";
 							break;
-						case 6:
+						case 5:
 							day.text = "Saturday";
+							break;
+						case 6:
+							day.text = "Sunday";
 							break;
 
 					}
@@ -348,27 +339,25 @@ public class TimeUpdater : MonoBehaviour
 
 		time.text = hour_str + ":" + minute_str + " " + am_pm;
 
-		//GameObject.Find("Canvas").GetComponent<StartGame>().SendTimeUpdate(day.text, time.text);
-
-
-		// update the iotHistory
-		//string newSecond = "";
-  //      foreach (IoTDevice dev in devices)
-  //      {
-		//	if (dev.name != "Sun")
-		//		newSecond = newSecond + " " + dev.state;
-  //      }
-  //      newSecond = newSecond + " " + player.currActivity.description + " " + GameObject.Find("Robot").GetComponent<RobotController>().state;
-
-		//iotHistory.Add(newSecond);
 
         if (secondForCnt > 150 ) { // send update every 150s
-			string human = GameObject.Find("PlayerCanvas").GetComponent<Player>().currActivityText.text;
-			string robot = GameObject.Find("Robot").GetComponent<RobotController>().state;
+			string human = player.currActivityText.text;
+			string robot = this.robotGameObj.GetComponent<RobotController>().state;
 
 			secondForCnt -= 150;
-			Debug.Log("day: " + day_int);
-			GameObject.Find("Canvas").GetComponent<StartGame>().SendDeviceUpdate(day_int, secondPassed, human, robot);
+			// Send device update through WS
+			this.canvas.GetComponent<StartGame>().SendDeviceUpdate(day_int, secondPassed, human, robot);
+
+			// update energy;
+            if (human == "working")
+            {
+				player.ReduceEnergy(inc/24);
+			}
+			if (human == "sleeping" || human == "napping")
+            {
+				player.AddEnergy(inc/24);
+            }
+
 		}
 
 	}

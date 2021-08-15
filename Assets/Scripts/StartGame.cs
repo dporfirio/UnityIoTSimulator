@@ -2,6 +2,7 @@
 using System.Collections;
 using UnitySocketIO;
 using UnitySocketIO.Events;
+using UnityEngine.UI;
 
 class DeviceUpdate
 {
@@ -44,54 +45,18 @@ class HumanFeedback
     public string feedback;
 }
 
+class PickDate
+{
+    public string msgType;
+    public int date;
+    public string participantId;
+}
+
 
 public class StartGame : MonoBehaviour
 {
-
-    public SocketIOController io;
-
-    void Start()
-    {
-        io.On("connect", (SocketIOEvent e) => {
-            Debug.Log("SocketIO connected");
-            //io.Emit("GameStart#");
-        });
-
-        io.On("start", (SocketIOEvent e) =>
-        {
-            Debug.Log("Start Game");
-            GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().ChangeInc(1);
-        });
-
-
-        io.On("robotprogram", (SocketIOEvent e) =>
-        {
-            Debug.Log("Receive new robot programs");
-        });
-
-        io.On("update_condition", (SocketIOEvent e) =>
-        {
-            Debug.Log("Update condition for robot programs");
-        });
-
-
-        io.Connect();
-        Debug.Log("Try to Connect");
-
-        //TestObject t = new TestObject();
-        //t.test = 123;
-        //t.test2 = "test1";
-
-        //io.Emit("test-event2", JsonUtility.ToJson(t));
-
-        //TestObject t2 = new TestObject();
-        //t2.test = 1234;
-        //t2.test2 = "test2";
-
-        //io.Emit("test-event3", JsonUtility.ToJson(t2), (string data) => {
-        //    Debug.Log(data);
-        //});
-    }
+    public InputField partcipantField;
+    public Connection conn;
 
     //public void SendTimeUpdate(string date, string time)
     //{
@@ -105,8 +70,17 @@ public class StartGame : MonoBehaviour
         HumanFeedback hFeed = new HumanFeedback();
         hFeed.feedback = feedback;
         hFeed.msgType = "HumanFeedback";
-        GameObject.Find("Player").GetComponent<Connection>().SendWebSocketMessage(JsonUtility.ToJson(hFeed));
-        //io.Emit("sendfeedback", JsonUtility.ToJson(hFeed));
+        this.conn.SendWebSocketMessage(JsonUtility.ToJson(hFeed));
+    }
+
+    public void SendDate(int day)
+    {
+        PickDate date = new PickDate();
+        date.date = day;
+        date.participantId = partcipantField.text;
+        date.msgType = "PickDate";
+        Debug.Log("PickDate");
+        this.conn.SendWebSocketMessage(JsonUtility.ToJson(date));
     }
 
     public void SendDeviceUpdate(int day_cnt, int second_cnt_perday, string human, string robot)
@@ -136,9 +110,9 @@ public class StartGame : MonoBehaviour
         update.human = human;
         update.robot = robot;
 
-        GameObject.Find("Player").GetComponent<Connection>().SendWebSocketMessage(JsonUtility.ToJson(update));
-        //io.Emit("updatedevices", JsonUtility.ToJson(update));
+        this.conn.SendWebSocketMessage(JsonUtility.ToJson(update));
     }
+
 
     //public void SendHumanActivity (string human)
     //{

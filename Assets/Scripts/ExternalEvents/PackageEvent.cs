@@ -72,15 +72,14 @@ public class PackageEvent : ExternalEvent {
 
 	private bool DetermineIfPackageReceivedOnDay() {
 		double p = 0.0;
-
-		if (this.currDay == 0) { // Sunday
-		p = 0.0;
+		if (this.currDay == 1) { // Mon
+			p = 0.0;
 		}
-		else if (this.currDay == 7) { // Saturday
-			p = 0.3;
+		else if (this.currDay == 7) { // Sun
+			p = 0.8;
 		}
 		else {
-			p = 0.6;
+			p = 0.4;
 		}
 
 		double a = rand.NextDouble();

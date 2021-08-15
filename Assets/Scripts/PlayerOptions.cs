@@ -13,16 +13,26 @@ public class PlayerOptions : MonoBehaviour
 	private List<GameObject> goList;
 	private Player player;
 
+    public GameObject confirmUI;
+    public Text promtText;
+
+    private int confirmed;
+
 	void Awake() {
 		GameObject g = GameObject.Find("PlayerCanvas");
         player = g.GetComponent<Player>();
-	}
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         buttonsToggled = false;
         goList = new List<GameObject>();
+
+        //confirmUI = GameObject.Find("ConfirmUI");
+        confirmUI.SetActive(false);
+
+        confirmed = 0; // 0 for default, -1 for decline, 1 for confirm
     }
 
     // Update is called once per frame
@@ -54,7 +64,7 @@ public class PlayerOptions : MonoBehaviour
 		        sample.transform.position += new Vector3(0,currButtonY,0);
 		        goList.Add(sample);
 		        buttonsToggled = true;
-		        currButtonY += 30;
+		        currButtonY += 40;
 	    	}
     	}
     	else { 
@@ -74,8 +84,43 @@ public class PlayerOptions : MonoBehaviour
 		buttonsToggled = false;
     }
 
+    public void ClickCancel()
+    {
+        confirmed = -1;
+    }
+
+    public void ClickConfirm()
+    {
+        confirmed = 1;
+
+    }
+
     void ClickButton(Operation act) {
     	RemoveOptions();
-    	act.Act();
+        confirmUI.SetActive(true);
+        promtText.text = "Please confirm if you want to perform: " + act.description;
+
+        StartCoroutine(loopWaitConfirm(act));
+    }
+
+    IEnumerator loopWaitConfirm(Operation act)
+    {
+        while (confirmed == 0)
+        {
+            yield return new WaitForSeconds(0.1F);
+        }
+
+        if (confirmed == -1)
+        {
+            confirmUI.SetActive(false);
+        }
+        else if (confirmed == 1)
+        {
+            confirmUI.SetActive(false);
+            List<Operation> blank = new List<Operation>();
+            this.ToggleOptions(blank);
+            act.Act();
+        }
+        confirmed = 0;
     }
 }

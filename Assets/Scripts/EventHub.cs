@@ -24,7 +24,7 @@ public class EventHub : MonoBehaviour
         ve.SetEventHub(this);
         externalEvents.Add(ve);
 
-        MakeCoffeeEvent me = this.transform.Find("MakeCoffeeEvent").GetComponent<MakeCoffeeEvent>();
+        MakeFoodEvent me = this.transform.Find("MakeFoodEvent").GetComponent<MakeFoodEvent>();
         me.SetEventHub(this);
         externalEvents.Add(me);
 

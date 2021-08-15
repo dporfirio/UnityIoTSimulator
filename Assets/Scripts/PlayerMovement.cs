@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         canMove = false;
-
     }
 
     // Update is called once per frame
@@ -39,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("playerMoveX", change.x);
             animator.SetFloat("playerMoveY", change.y);
             animator.SetBool("playerMoving", true);
+            GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().ChangeInc(0);
         }
         else
         {

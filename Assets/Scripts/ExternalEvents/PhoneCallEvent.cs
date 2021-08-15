@@ -15,9 +15,9 @@ public class PhoneCallEvent : ExternalEvent {
 		this.selectedMin = -1;
 		this.selectedMin = -1;
 		this.rand = new Random();
-		this.cnt = this.rand.Next(1,3);
-		//this.cnt = 2;
-		this.hasDecided = false;
+        //this.cnt = this.rand.Next(1,3);
+        this.cnt = 2;
+        this.hasDecided = false;
 	}
 
 	public override void ReceiveTimeUpdate(int day, int hour, int min, int sec) {
@@ -58,7 +58,8 @@ public class PhoneCallEvent : ExternalEvent {
 	public override void Execute() {
 		Debug.Log("Executing phone call event!");
 		this.ehub.AddTrigger("PhoneCalls", true);
-		GameObject.Find("ComputerOffice").GetComponent<PhoneObject>().distanceBound = 5;
+		//GameObject.Find("ComputerOffice").GetComponent<PhoneObject>().distanceBound = 5;
+		GameObject.Find("Robot").GetComponent<PhoneObject>().distanceBound = 5;
 	}
 
 	public void SetEventHub(EventHub eh) {

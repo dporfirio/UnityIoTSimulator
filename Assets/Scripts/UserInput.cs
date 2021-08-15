@@ -6,16 +6,17 @@ using UnityEngine.UI;
 
 public class UserInput : MonoBehaviour
 {
-    
+    // Linked with feedback window
     public InputField inputField;
-    //public GameObject textDisplay;
     public GameObject popUpUI;
-    
+
+    public TimeUpdater tUpdate;
 
     private void Start()
     {
         popUpUI = GameObject.Find("DialogUI");
         popUpUI.SetActive(false);
+
     }
 
     public void StoreInput()
@@ -25,19 +26,20 @@ public class UserInput : MonoBehaviour
         inputField.Select();
         inputField.text = "";
         GameObject.Find("Canvas").GetComponent<StartGame>().SendHumanFeedback(s);
+        PopUp();
     }
 
     public void PopUp()
     {
-        if (popUpUI.activeSelf) {
+        if (popUpUI.activeSelf)
+        {
             popUpUI.SetActive(false);
-            GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StartAll();
+            tUpdate.StartAll();
         }
         else
         {
             popUpUI.SetActive(true);
-            GameObject.Find("ActivityPanel").GetComponent<TimeUpdater>().StopAll();
+            tUpdate.StopAll();
         }
-        
     }
 }
